@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class);
 Route::get('/home', Home::class);
 Route::get('/fothebys', Home::class);
-Route::get('/lots/name', LotController::class)->name('lot.details');
+Route::get('/lots/name', LotDetails::class)->name('lot.details');
 Route::get('/faqs', Faq::class)->name('faq.show');
 
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
@@ -53,7 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/admin/products', [ProductController::class,'index'])->name('products.index');
     Route::get('/admin/products/create-step-one', [ProductController::class,'createStepOne'])->name('products.create.step.one');
     Route::post('/admin/products/create-step-one', [ProductController::class,'postCreateStepOne'])->name('products.create.step.one.post');
-    Route::resource('/admin/lots', LotController::class);
+    Route::resource('/admin/lots', LotDetails::class);
 
     Route::get('/admin/products/create-step-two', [ProductController::class,'createStepTwo'])->name('products.create.step.two');
     Route::post('/admin/products/create-step-two', [ProductController::class,'postCreateStepTwo'])->name('products.create.step.two.post');
