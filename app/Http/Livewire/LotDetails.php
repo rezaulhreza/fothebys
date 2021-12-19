@@ -121,21 +121,22 @@ class LotDetails extends Component
     public function update(Request $request, $id)
     {
         $lot = LotItem::findOrFail($id);
+        // dd($request->all());
         $lot->update([
             'category_id' => $request->input('category_id'),
             'title' => $request->input('title'),
-            'lot_ref' => $request->input('product_qty'),
-            'artist' => $request->input('product_tags_en'),
-            'year' => $request->input('product_tags_bn'),
-            'minimum' => $request->input('product_size_en'),
-            'estimated' => $request->input('product_size_bn'),
+            'lot_ref' => $request->input('lot_ref'),
+            'artist' => $request->input('artist'),
+            'year' => $request->input('year'),
+            'minimum' => $request->input('minimum'),
+            'estimated' => $request->input('estimated'),
             'additional' => $request->input('product_color_en'),
-            'desc' => $request->input('product_color_bn'),
+            'desc' => $request->input('desc'),
 
             'status' => $request->input('status')|false
             ]);
 
-           
+          
 
             
 
@@ -159,7 +160,7 @@ class LotDetails extends Component
         $lots->delete();
 
         $notification = [
-            'message' => 'Product Deleted Successfully!!!',
+            'message' => 'Lot Deleted Successfully!!!',
             'alert-type' => 'success'
         ];
 
@@ -173,7 +174,7 @@ class LotDetails extends Component
         $lot->status = $request->status;
         $lot->save();
 
-        return response()->json(['success'=>'Product status change successfully.']);
+        return response()->json(['success'=>'Lot status change successfully.']);
     }
 
 
