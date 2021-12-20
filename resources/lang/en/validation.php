@@ -142,6 +142,23 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'category_id' => [
+            'numeric' => 'Please select any category',
+        ],
+        'minimum' => [
+            'numeric' => 'Please enter numbers only',
+        ],
+        'start_date' => [
+            'required' => 'Please enter the Start Date',
+        ],
+        'end_date' => [
+            'required' => 'Please enter the End Date',
+        ],
+        'lot_ref' => [
+            'numeric' => 'Lot Reference No. can only be numbers',
+        ],
+        
+        
     ],
 
     /*
@@ -155,6 +172,23 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'name' => 'Name',
+        'description' => 'Description',
+        'category_id' => 'Category',
+        'title' => 'Title',
+        'lot_ref' => 'Lot Reference No.',
+        'artist' => 'Artist',
+        'year' => 'Year',
+        'minimum' => 'Minimum Price',
+        'estimated' => 'Estimated Price',
+        'desc' => 'Description',
+        'additional' => 'Additional Information',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
+        'status' => 'Status',
+
+    ],
 
 ];

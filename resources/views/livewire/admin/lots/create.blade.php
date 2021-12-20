@@ -46,7 +46,7 @@
                                             <div class="form-group">
                                                 <h5>Title <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="title" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
+                                                    <input type="text" name="title" class="form-control"  > <div class="help-block"></div>
                                                 </div>
                                                 @error('title')
                                                     <span class="alert text-danger">{{ $message }}</span>
@@ -57,7 +57,7 @@
                                             <div class="form-group">
                                                 <h5>Lot Reference <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="lot_ref" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
+                                                    <input type="text" name="lot_ref" class="form-control"  > <div class="help-block"></div>
                                                 </div>
                                                 @error('lot_ref')
                                                     <span class="alert text-danger">{{ $message }}</span>
@@ -79,9 +79,33 @@
                                             <div class="form-group">
                                                 <h5>Year of Production <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="number" name="year" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
+                                                    <input type="number" name="year" class="form-control"  > <div class="help-block"></div>
                                                 </div>
                                                 @error('year')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Start Date <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" name="start_date" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('start_date')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>End Date <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" name="end_date" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('end_date')
                                                     <span class="alert text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

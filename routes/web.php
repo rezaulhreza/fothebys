@@ -28,7 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class);
 Route::get('/home', Home::class);
 Route::get('/fothebys', Home::class);
-Route::get('/lots/name', LotDetails::class)->name('lot.details');
+Route::get('/lot/{id}', LotDetails::class)->name('lot.details');
+// Route::get('/product/detail/{id}/{slug}', [FrontendPageController::class,'productDeatil'];
 Route::get('/faqs', Faq::class)->name('faq.show');
 
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');

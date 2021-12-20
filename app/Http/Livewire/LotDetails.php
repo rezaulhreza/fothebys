@@ -11,13 +11,22 @@ use App\Http\Requests\LotStoreRequest;
 
 class LotDetails extends Component
 {
+
+    public function mount($id){
+        $this->id=$id;
+    }
+
     public function render()
     {
-        // $single=Lot::where('title',$this->title)->first();
-        // $lots = Lot::all();
-        $lots=Lot::all();
-        return view('livewire.lot-details',['lots'=>$lots])->layout('layouts.guest');
+        $lot=LotItem::where('id',$this->id)->first();
+
+        $categories = Category::latest()->get();
+       
+        // return response()->json($lot);
+    return view('livewire.lot-detals', compact('lot', 'categories'))->layout('layouts.guest');
     }
+
+   
 
     /**
      * Display a listing of the resource.
@@ -70,6 +79,8 @@ class LotDetails extends Component
             'estimated' => $request->input('estimated'),
             'additional' => $request->input('additional'),
             'desc' => $request->input('desc'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
 
             'status' => $request->input('status')|false
             ]);

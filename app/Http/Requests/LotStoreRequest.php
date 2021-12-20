@@ -26,19 +26,20 @@ class LotStoreRequest extends FormRequest
         return [
            
             'category_id' => 'required|numeric',
-            'year' => 'required|numeric',
+            'year' => 'required|numeric|min:4',
             'title' => 'required',
            
-            'lot_ref' => 'required',
+            'lot_ref' => 'required|numeric',
             'artist' => 'required',
          
-            'minimum' => 'numeric|nullable',
+            'minimum' => 'numeric|gt:100',
             'estimated' => 'required|numeric',
           
             'additional' => 'nullable',
 
-            'desc' => 'nullable',
-       
+            'desc' => 'required',
+            'start_date' => 'required|date|after:yesterday',
+            'end_date' =>  'required|date|after:start_date',
        
             'status' => 'nullable',
         ];

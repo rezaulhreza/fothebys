@@ -31,7 +31,8 @@ class CreateLotitemsTable extends Migration
           
             $table->longText('desc')->nullable();
             $table->boolean('status')->default(true);
-
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
           
             $table->foreign('category_id')
                 ->references('id')
