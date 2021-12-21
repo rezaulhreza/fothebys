@@ -7,12 +7,14 @@
                 >
               </div>
 
-              <div class="relative p-2 m-2 object-right">
+              {{-- <div class="relative p-2 m-2 object-right">
                 {{ $lots->links() }}
-               </div>
+               </div> --}}
 
                
               <div class="px-10 grid grid-cols-4 gap-4">
+
+                
               @foreach ($lots as $lot)
               
                   
@@ -41,7 +43,7 @@
                         <div class="text-lg text-gray-600 font-light">
                           <strong>Estimated </strong>
                         </div>
-                        <div class="text-lg">
+                        <div class="text-lg text-gray-600">
                           {{$lot->estimated}} GBP
                         </div>
                       
@@ -49,11 +51,11 @@
                         <div class="text-lg text-gray-600 font-light">
                           <strong>Ends in </strong>  
                         </div>
-                      {{ \Carbon\Carbon::parse($lot->end_date)->diffForHumans() }}
+                        <p class="text-xl font-bold">{{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}}</p> Days
                       </div>
                       </div>
                     </div>
-                    <a href="{{route('lot.details', ['lot_ref' => $lot->lot_ref])}}" class="text-lg text-center hover:bg-purple-500 text-white bg-red-600 font-bold  rounded-full font-bold text-white px-4  transition duration-300 ease-in-out mr-6">
+                    <a href="{{ route('lot-specific-details', ['id' => $lot->id, 'lot_ref' => $lot->lot_ref]) }}" class="text-lg text-center hover:bg-purple-500 text-white bg-red-600 font-bold  rounded-full font-bold text-white px-4  transition duration-300 ease-in-out mr-6">
                       View
                     </a>
                   </div>
@@ -67,13 +69,21 @@
 
             
           </div>
+
+
+
+          
               <div class="px-10 mt-5">
                 <span class="uppercase font-bold text-2xl "
-                  >Upcoming Auctions</span
-                >
+                  >Upcoming Auctions</span>
+                
               </div>
+              
+
+           
+        
               <div class="px-10 grid grid-cols-4 gap-4">
-                @foreach ($lots as $lot)
+                @foreach ($upcoming as $lot)
                 
                     
                 
@@ -113,7 +123,7 @@
                         </div>
                         </div>
                       </div>
-                      <a href="{{route('lot.details')}}" class="text-lg text-center hover:bg-purple-500 text-white bg-red-600 font-bold  rounded-full font-bold text-white px-4  transition duration-300 ease-in-out mr-6">
+                      <a href="{{ route('lot-specific-details', ['id' => $lot->id, 'lot_ref' => $lot->lot_ref]) }}" class="text-lg text-center hover:bg-purple-500 text-white bg-red-600 font-bold  rounded-full font-bold text-white px-4  transition duration-300 ease-in-out mr-6">
                         View
                       </a>
                     </div>
@@ -121,5 +131,7 @@
                 </div>
   
                   @endforeach
+
+          
                   
                 </div>

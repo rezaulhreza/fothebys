@@ -12,19 +12,19 @@ use App\Http\Requests\LotStoreRequest;
 class LotDetails extends Component
 {
 
-    public function mount($id){
-        $this->id=$id;
-    }
+    // public function mount($id){
+    //     $this->id=$id;
+    // }
 
-    public function render()
-    {
-        $lot=LotItem::where('id',$this->id)->first();
+    // public function render()
+    // {
+    //     $lot=LotItem::where('id',$this->id)->first();
 
-        $categories = Category::latest()->get();
+    //     $categories = Category::latest()->get();
        
-        // return response()->json($lot);
-    return view('livewire.lot-detals', compact('lot', 'categories'))->layout('layouts.guest');
-    }
+    //     // return response()->json($lot);
+    // return view('livewire.lot-detals', compact('lot', 'categories'))->layout('layouts.guest');
+    // }
 
    
 

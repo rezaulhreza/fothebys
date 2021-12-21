@@ -20,14 +20,17 @@
 
 
     </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-b from-red-50 via-purple-200 to-red-100">
+
 
 
   @include('nav-client')
 
             <!-- main -->
             <main class="w-full overflow-y-auto ">
+            
 
+          
                 {{$slot}}
 
               

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LotController;
+use App\Http\Controllers\LotSpecific;
 use App\Http\Controllers\ProductController;
 use App\Http\Livewire\Admin\Account as AdminAccount;
 use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
@@ -11,7 +12,7 @@ use App\Http\Livewire\Home;
 use App\Http\Livewire\LotDetails;
 use App\Http\Livewire\User\Account as UserAccount;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
-use App\Models\Lot;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,10 +29,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class);
 Route::get('/home', Home::class);
 Route::get('/fothebys', Home::class);
-Route::get('/lot/{id}', LotDetails::class)->name('lot.details');
+// // Route::get('/lot/details/', LotDetails::class)->name('lot.details');
+// Route::get('/lots/{lot_ref}', LotDetails::class)->name('lot.details');
 // Route::get('/product/detail/{id}/{slug}', [FrontendPageController::class,'productDeatil'];
 Route::get('/faqs', Faq::class)->name('faq.show');
-
+Route::get('/lot/detail/{id}/{lot_ref}', [LotSpecific::class,'lotDetail'])->name('lot-specific-details');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 
 

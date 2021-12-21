@@ -1,6 +1,6 @@
 <div class="divide-y-4  w-full flex flex-col">
     <section class="text-gray-600 grid place-content-center place-items-center h-screen">
-      <section class="flex flex-col gap-12 w-3/4 px-10 py-8 rounded-xl shadow bg-gray-200">
+      <section class="flex flex-col gap-12 w-3/4 px-10 py-8 rounded-2xl shadow bg-white">
         <h2 class="text-5xl text-center font-semibold">Bulletin</h2>
         <form name="newsletter" class="flex flex-wrap gap-6">
           <div class="w-full py-2 border-b-2 border-gray-400 flex justify-between gap-3">

@@ -87,6 +87,30 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Start Date <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" value="{{ old('start_date', $lot->start_date) }}" name="start_date" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
+                                                </div>
+                                                @error('start_date')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>End Date <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" value="{{ old('end_date', $lot->end_date) }}" name="end_date" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
+                                                </div>
+                                                @error('end_date')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- Second row end --}}
                                 
@@ -171,6 +195,13 @@
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
                                                 id="status" value="{{ old('status', $lot->status) }}" name="status" checked value="1">
+                                                <label class="form-check-label" for="status">Display</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox"
+                                                id="status" value="{{ old('status', $lot->status) }}" name="status" checked value="0">
                                                 <label class="form-check-label" for="status">Display</label>
                                             </div>
                                         </div>
