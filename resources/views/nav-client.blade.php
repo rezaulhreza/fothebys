@@ -10,7 +10,7 @@
         md:py-0
         px-4
         text-lg 
-        bg-gradient-to-t from-purple-100 via-purple-400 to-purple-50">
+        bg-gradient-to-t from-purple-50 via-purple-300 to-purple-50">
           <div  class="font-bold text-sm p-4">
             <img class="inline object-cover w-15 border-red-600 h-12 mr-2 rounded " src="{{asset('photos/logo.jpg')}}" alt="logo">
           </div>

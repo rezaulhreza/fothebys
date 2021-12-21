@@ -36,6 +36,7 @@ class LotDetails extends Component
     public function index()
     {
         $lots = LotItem::with(['category'])->latest()->get();
+        
         return view('livewire.admin.lots.index',compact('lots'));
     }
 

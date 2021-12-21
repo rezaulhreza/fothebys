@@ -20,7 +20,7 @@
 
 
     </head>
-<body class="bg-gradient-to-b from-red-50 via-purple-200 to-red-100">
+<body class="bg-gray-50">
 
 
 

@@ -23,7 +23,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </span>
-      <a href="#" class="hover:underline hover:text-gray-600">{{$lot->category->name}}</a>
+      <a href="#" class="hover:underline hover:text-gray-600">{{ Str::ucfirst($lot->category->name) }}</a>
   
    
     </div>
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="md:flex-1 px-4">
-        <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{$lot->title}}</h2>
+        <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{Str::ucfirst($lot->title)}}</h2>
         <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">{{$lot->artist}}, {{$lot->year}}</a></p>
 
         <div class="flex items-center space-x-4 my-4">
@@ -91,16 +91,18 @@
         <div class="form-group">
           <h5>Bid<span class="text-danger"></span></h5>
           <div class="controls">
-              <input type="number" name="minimum" class="form-control"> <div class="help-block"></div>
+              <input type="text" class="bg-gray-200 border-b border-purple-900 rounded-lg" name="minimum" class="form-control"> <div class="help-block"></div>
           </div>
           {{-- @error('minimum')
               <span class="alert text-danger">{{ $message }}</span>
           @enderror --}}
       </div>
     
-        <button class="mb-2 md:mb-0 bg-red-400 px-2 mt-2 text-xl shadow-sm font-medium tracking-wider text-white rounded hover:shadow-lg hover:bg-green-500" type="submit">Place Bid</button>
+        <button class="mb-2 md:mb-0 bg-red-400 px-2 mt-2 text-xl shadow-sm font-medium tracking-wider text-white rounded hover:shadow-lg hover:bg-purple-500" type="submit">Place Bid</button>
    
     </form>
       </div>
     </div>
+
+    @include('livewire.related')
   </x-guest-layout>

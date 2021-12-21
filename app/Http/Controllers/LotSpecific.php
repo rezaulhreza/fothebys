@@ -12,10 +12,13 @@ class LotSpecific extends Controller
     {
         $category = Category::latest()->get();
     $lot = LotItem::with(['category'])->findOrFail($id);
-        
+    // $related=LotItem::where('category_id',$lot->category_id->inRandomOrder()->limit(3)->get());
+    $related=LotItem::skip(0)->take(8)->get()->where('category_id',$lot->category_id);
+        $relatedCount=LotItem::count();
+        $lotCount = LotItem::count();
         //return response()->json($product);
         return view('livewire.lot-specific', compact(
-            'category','lot'
+            'category','lot','related'
         ));
     }
 

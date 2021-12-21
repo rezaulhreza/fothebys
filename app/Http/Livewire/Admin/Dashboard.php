@@ -14,11 +14,11 @@ class Dashboard extends Component
     public function render()
     {
     $categoryCount = Category::count();
-        $lotCount = LotItem::count();
+    $lotCount = LotItem::count();
     $userCount = User::count();
     $faqCount = Faq::count();
-    // dd($faqCount);
-        return view('livewire.admin.dashboard.admin-dashboard',compact('categoryCount', 'userCount', 'faqCount','lotCount'))->layout('layouts.app');
+    
+    return view('livewire.admin.dashboard.admin-dashboard',compact('categoryCount', 'userCount', 'faqCount','lotCount'))->layout('layouts.app');
 
     }
 }
