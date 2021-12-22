@@ -46,7 +46,7 @@
                 >
               </div>
 
-              <div class="relative p-2 m-2 object-right">
+              <div class=" p-2 m-2 object-right">
                 {{ $paginateLots->links() }}
                </div>
 
@@ -119,9 +119,7 @@
               </div>
               
 
-              <div class="relative p-2 m-2 object-right">
-                {{ $paginateLots->links() }}
-               </div>
+            
         
               <div class="px-10 grid grid-cols-4 gap-4">
                 @foreach ($upcoming as $lot)
