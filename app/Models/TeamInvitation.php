@@ -26,4 +26,5 @@ class TeamInvitation extends JetstreamTeamInvitation
     {
         return $this->belongsTo(Jetstream::teamModel());
     }
+    
 }

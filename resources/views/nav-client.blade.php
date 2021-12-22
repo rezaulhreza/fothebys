@@ -40,7 +40,7 @@
 
    
       
-  <nav  class="fixed h-20 bottom-0 inset-x-0 bg-gradient-to-br from-purple-200 via-purple-400 to-purple-800 rounded-sm flex justify-between  uppercase font-mono mb-0 ">
+  <nav  class="fixed h-15 border border-t-900 bottom-0 inset-x-0 bg-gradient-to-br from-purple-200 via-purple-400 to-purple-800 rounded-sm flex justify-between  uppercase font-mono mb-0 ">
     {{-- <a href="/" class="w-full block py-5 px-3 text-center hover:bg-red-600 text-lg   text-white transition duration-300">
   <img class="inline object-cover w-15 border-red-600 h-12 mr-2 rounded " src="{{asset('photos/logo.jpg')}}" alt="logo">
   </a> --}}

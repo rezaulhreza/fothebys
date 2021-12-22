@@ -31,7 +31,7 @@
             {{ $faqs->links() }}
 
             @else 
-            <h1>No FAQs added yet</h1>
+            <h1>FAQs adding soon</h1>
             @endif  
             
          

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLotitemsTable extends Migration
+class CreateLotItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -51,6 +51,6 @@ class CreateLotitemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lotitems');
+        Schema::dropIfExists('lot_items');
     }
 }

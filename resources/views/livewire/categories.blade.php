@@ -49,17 +49,21 @@
                   
 
           <!-- if there is no posts then it will display the below message -->
-                  @else
-  
-                  No categories yet
-  
-                  @endif
+            
                   </div>
 
 
                  @include('livewire.interesting')
 
-                  
+                 @else
+  
+                 <div
+                 class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col text-center justify-center text-2xl items-center"
+               >
+                Wide range of categories are being introduced soon! Stay Tuned!
+     </div>
+ 
+                 @endif
 
                 
                 
