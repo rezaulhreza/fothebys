@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="">
+  
 
     <x-jet-authentication-card class="bg-dark-700">
 
@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form  method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
@@ -51,5 +51,5 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</div>
+
 </x-guest-layout>

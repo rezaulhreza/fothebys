@@ -14,7 +14,7 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $category_name=$this->faker->unique()->words($nb=2,$asText=true);
+        $category_name=$this->faker->unique()->words($nb=1,$asText=true);
         $description=$this->faker->text(20);
         return [
             //

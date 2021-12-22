@@ -24,10 +24,10 @@ class LotFactory extends Factory
             //
         'title' => $title,
       
-        'category_id' => $this->faker->numberBetween(1, 5),
+        'category_id' => $this->faker->numberBetween(1, 8),
         'lot_ref' => $this->faker->numberBetween(1, 5),
         'artist' => $this->faker->text(50),
-        'year' => $this->faker->numberBetween(4, 4),
+        'year' => $this->faker->year('now','-2 year'),
        
         'desc' => $this->faker->text(100),
         'additional' => $this->faker->text(100),
