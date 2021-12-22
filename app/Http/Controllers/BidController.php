@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Bid;
+use App\Models\BidItem;
 use Illuminate\Http\Request;
 
 class BidController extends Controller
@@ -14,6 +17,10 @@ class BidController extends Controller
     public function index()
     {
         //
+        $bids = Bid::latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
     }
 
     /**
@@ -43,9 +50,20 @@ class BidController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bid $bid)
     {
         //
+        $bid = Bid::whereId($bid->id)
+            ->with(['user'])
+            ->first();
+        $bidItems = BidItem::where('order_id', $bid->id)
+            ->with('lot')
+            ->orderBy('id', 'DESC')->get();
+
+        return view('admin.Bids.show', compact(
+            'bid',
+            'bidItems'
+        ));
     }
 
     /**
@@ -81,4 +99,62 @@ class BidController extends Controller
     {
         //
     }
+
+
+    public function pendingBidIndex()
+    {
+        $bids = Bid::where('status', 'pending')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+    public function winnerBidIndex()
+    {
+        $bids = Bid::where('status', 'won')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+    public function processingBidIndex()
+    {
+        $bids = Bid::where('status', 'processing')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+
+
+    public function shippedBidIndex()
+    {
+        $bids = Bid::where('status', 'shipped')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+    public function deliveredBidIndex()
+    {
+        $bids = Bid::where('status', 'delivered')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+    public function cancelBidIndex()
+    {
+        $bids = Bid::where('status', 'cancel')->latest('id')->get();
+        return view('admin.Bids.index', compact(
+            'bids'
+        ));
+    }
+
+
+
+
+ 
+
+
 }
