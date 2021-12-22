@@ -89,7 +89,7 @@
       <div class="form-group">
         <h5>Bid<span class="text-danger"></span></h5>
         <div class="controls">
-            <input type="text" class="bg-gray-200 border-b border-purple-900 rounded-lg" name="minimum" class="form-control"> <div class="help-block"></div>
+            <input type="text" class="bg-gray-200 border-b border-purple-900 rounded px-2 py-2 w-1/3" name="minimum" class="form-control"> <div class="help-block"></div>
         </div>
         {{-- @error('minimum')
             <span class="alert text-danger">{{ $message }}</span>
