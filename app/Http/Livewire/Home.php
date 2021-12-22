@@ -18,14 +18,14 @@ class Home extends Component
 
     public function render()
     {
-        $paginateLots = LotItem::latest()->paginate(10);
+        // $paginateLots = LotItem::latest()->paginate(10);
         $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->get();;
         // $lots = LotItem::latest()->paginate(5);
         $lots =LotItem::whereDate('start_date', '<', Carbon::today())->orderBy('id', 'desc')->take(5)->get();
         $lotCount = LotItem::count();
         
         $categories = Category::all();
-        return view('livewire.home',['categories'=>$categories],['lots'=>$lots,'upcoming'=>$upcoming,'lotCount'=>$lotCount,'paginateLots'=>$paginateLots])->layout('layouts.guest');
+        return view('livewire.home',['categories'=>$categories],['lots'=>$lots,'upcoming'=>$upcoming,'lotCount'=>$lotCount])->layout('layouts.guest');
     }
 
 }
