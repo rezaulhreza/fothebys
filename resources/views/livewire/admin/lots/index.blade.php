@@ -41,10 +41,16 @@
             <tbody>
                 @foreach($lots as $lot)
                 <tr>
-                    <td>
-                        <img src="{{ asset($lot->lot_thumbnail) }}" alt=""  style="width: 70px; height:70px;">
-                    </td>
+              
                     <td>{{ $lot->id }}</td>
+                    <td>
+                        @if ($lot->lot_thumbnail!=null)
+                        <img src="{{ asset($lot->lot_thumbnail) }}" alt=""  style="width: 70px; height:70px;">
+                        @else
+                            No Image Available
+                        @endif
+                       
+                    </td>
                     <td>{{ $lot->title }}</td>
                     <td>{{ $lot->lot_ref }}</td>
                     <td>{{ $lot->artist }}</td>

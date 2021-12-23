@@ -114,10 +114,13 @@
                                     <h5 class="text-warning mt-4">Lot Image Upload Area</h5>
                                     <hr>
                                     {{-- Seventh row start --}}
+                                    <h5 class="text-warning mt-4">Product Image Upload Area</h5>
+                                    <hr>
+                                    {{-- Seventh row start --}}
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Lot Thumbnail <span class="text-danger">*</span></h5>
+                                                <h5>Product Thumbnail <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="file" name="lot_thumbnail" class="form-control" required="" data-validation-required-message="This field is required"
                                                     onChange="mainThumbnailShow(this)"> <div class="help-block"></div>
@@ -130,7 +133,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Lot Multiple Image <span class="text-danger"></span></h5>
+                                                <h5>Product Multiple Image <span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <input type="file" name="lot_images[]" class="form-control"  multiple="" id="multiImg" > <div class="help-block"></div>
                                                 </div>
@@ -141,9 +144,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                
-                                    <hr>
-                              
                                     
                                     <h5 class=" text-lg text-gray-700   mt-4">Lot Pricing Information Area</h5>
                                     <hr>
@@ -253,7 +253,7 @@
                         type: "GET",
                         dataType: "json",
                         url: '/admin/changestatus',
-                        data: {'status': status, 'product_id': product_id},
+                        data: {'status': status, 'lot_id': lot_id},
                         success: function(data){
                             console.log(data.success)
                         }
@@ -263,7 +263,47 @@
         </script>
 
 
+<script type="text/javascript">
+    $(document).ready(function() {
 
+
+      $(document).ready(function(){
+    $('#multiImg').on('change', function(){ //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            var data = $(this)[0].files; //this file data
+            $.each(data, function(index, file){ //loop though each file
+                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                    var fRead = new FileReader(); //new filereader
+                    fRead.onload = (function(file){ //trigger function on successful read
+                    return function(e) {
+                        var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(80)
+                    .height(80); //create image element
+                        $('#preview_img').append(img); //append image to output element
+                    };
+                    })(file);
+                    fRead.readAsDataURL(file); //URL representing the file's data.
+                }
+            });
+        }else{
+            alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+    });
+    });
+  });
+</script>
+
+<script type="text/javascript">
+    function mainThumbnailShow(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#mainThumbnail').attr('src', e.target.result).width(80).height(80);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 
 
                 </x-app-layout>

@@ -58,12 +58,12 @@
                 <div
                 class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
               >
-                <div class="bg-white rounded-sm mt-5">
-                  <img
-                  src="{{asset('photos/sample.jpeg')}}"
-                    class="h-40 rounded-md"
-                    alt=""
-                  />
+              <div class="bg-white rounded-sm mt-5">
+                <img
+                src="{{ asset($lot->lot_thumbnail) }}"
+                  class="h-40 rounded-md"
+                  alt=""
+                />
                 </div>
                 <div class="bg-white shadow-lg rounded-sm -mt-4 w-64">
                   <div class="py-5 px-5">
@@ -128,7 +128,7 @@
                 >
                   <div class="bg-white rounded-sm mt-5">
                     <img
-                    src="{{asset('photos/sample.jpeg')}}"
+                    src="{{ asset($lot->lot_thumbnail) }}"
                       class="h-40 rounded-md"
                       alt=""
                     />

@@ -16,7 +16,7 @@ class LotItem extends Model
     }
     public function images()
     {
-        return $this->hasMany(Image::class,'lot_items_id', 'id');
+        return $this->hasMany(Image::class,'lot_id', 'id');
     }
     
 }

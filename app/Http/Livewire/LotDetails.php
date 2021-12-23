@@ -2,32 +2,21 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Lot;
+use Carbon\Carbon;
+use Image;
 use App\Models\LotItem;
 use Livewire\Component;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Image as ModelsImage;
 use App\Http\Requests\LotStoreRequest;
 
 class LotDetails extends Component
 {
 
-    // public function mount($id){
-    //     $this->id=$id;
-    // }
-
-    // public function render()
-    // {
-    //     $lot=LotItem::where('id',$this->id)->first();
-
-    //     $categories = Category::latest()->get();
-       
-    //     // return response()->json($lot);
-    // return view('livewire.lot-detals', compact('lot', 'categories'))->layout('layouts.guest');
-    // }
-
-   
-
+ 
     /**
      * Display a listing of the resource.
      *
@@ -35,8 +24,7 @@ class LotDetails extends Component
      */
     public function index()
     {
-        $lots = LotItem::with(['category'])->latest()->get();
-        
+         $lots = LotItem::with(['category','images'])->latest()->get();
         return view('livewire.admin.lots.index',compact('lots'));
     }
 
@@ -68,7 +56,7 @@ class LotDetails extends Component
      */
     public function store(LotStoreRequest $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $lot = LotItem::create([
             
             'category_id' => $request->input('category_id'),
@@ -82,12 +70,38 @@ class LotDetails extends Component
             'desc' => $request->input('desc'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
-
             'status' => $request->input('status')|false
             ]);
 
-            
-            
+            if($request->file('lot_thumbnail')){
+                // if($lot->lot_thumbnail !='thumbnail.jpg'){
+                //     unlink($lot->lot_thumbnail);
+                // }
+                $upload_location = 'upload/lots/thumbnail/';
+                $file = $request->file('lot_thumbnail');
+                $name_gen = hexdec(uniqid()).'.'.$file->getClientOriginalExtension();
+                Image::make($file)->resize(600,600)->save($upload_location.$name_gen);
+                $save_url = $upload_location.$name_gen;
+
+                $lot->update([
+                    'lot_thumbnail' => $save_url,
+                ]);
+            }
+
+            if($request->file('lot_images'))
+            {
+                $images = $request->file('lot_images');
+                foreach ($images as $single_image) {
+                    $upload_location = 'upload/lots/multi_images/';
+                    $name_gen = hexdec(uniqid()).'.'.$single_image->getClientOriginalExtension();
+                    Image::make($single_image)->resize(600,600)->save($upload_location.$name_gen);
+                    $save_url = $upload_location.$name_gen;
+                    ModelsImage::create([
+                        'lot_id' => $lot->id,
+                        'photo_name' => $save_url,
+                    ]);
+                }
+            }
 
         $notification = [
             'message' => 'Lot Created Successfully!!!',
@@ -142,13 +156,14 @@ class LotDetails extends Component
             'year' => $request->input('year'),
             'minimum' => $request->input('minimum'),
             'estimated' => $request->input('estimated'),
-            'additional' => $request->input('product_color_en'),
+            'additional' => $request->input('additional'),
             'desc' => $request->input('desc'),
 
             'status' => $request->input('status')|false
             ]);
+           
 
-          
+           
 
             
 
@@ -168,26 +183,57 @@ class LotDetails extends Component
      */
     public function destroy($id)
     {
-        $lots = LotItem::findOrFail($id);
-        $lots->delete();
+        $lot = LotItem::findOrFail($id);
+       
+        $lot->delete();
 
         $notification = [
             'message' => 'Lot Deleted Successfully!!!',
             'alert-type' => 'success'
         ];
-
         return redirect()->route('lots.index')->with($notification);
     }
+
+    
 
     public function changeStatus(Request $request)
     {
         //dd($request->all());
-        $lot = LotItem::findOrFail($request->id);
+        $lot = LotItem::findOrFail($request->lot_id);
         $lot->status = $request->status;
         $lot->save();
 
         return response()->json(['success'=>'Lot status change successfully.']);
     }
 
+    public function MultiImageUpdate(Request $request)
+    {
+        $imgs = $request->multi_img;
 
+		foreach ($imgs as $id => $img) {
+	    $imgDel = ModelsImage::findOrFail($id);
+	    unlink($imgDel->photo_name);
+
+    	$make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        $upload_location = 'upload/lots/multi_images/';
+    	Image::make($img)->resize(600,600)->save($upload_location.$make_name);
+    	$uploadPath = $upload_location.$make_name;
+
+    	ModelsImage::where('id',$id)->update([
+    		'photo_name' => $uploadPath,
+    		'updated_at' => Carbon::now(),
+
+    	]);
+
+        $notification = array(
+			'message' => 'Lot Image Updated Successfully',
+			'alert-type' => 'info'
+		);
+
+		return redirect()->back()->with($notification);
+
+	 } 
+
+
+}
 }

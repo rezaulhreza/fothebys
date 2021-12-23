@@ -18,13 +18,13 @@ class CreateLotItemsTable extends Migration
      
             $table->unsignedBigInteger('category_id')->nullable();
          
-       
+            
             $table->string('title');
          
             $table->string('lot_ref')->nullable();
             $table->string('artist');         
             $table->string('year');
-        
+            $table->string('lot_thumbnail')->nullable()->default('thumbnail.jpg');
             $table->unsignedInteger('minimum')->nullable();
             $table->unsignedInteger('estimated')->nullable();
             $table->text('additional')->nullable();

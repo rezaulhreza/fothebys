@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'lot_items_id',
+        'lot_id',
         'photo_name'
     ];
 
     public function lot()
     {
-        return $this->belongsTo(LotItem::class, 'lot_items_id', 'id');
+        return $this->belongsTo(Product::class, 'lot_id', 'id');
     }
 }

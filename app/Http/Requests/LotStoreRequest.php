@@ -32,13 +32,16 @@ class LotStoreRequest extends FormRequest
             'lot_ref' => 'required|numeric',
             'artist' => 'required',
          
-            'minimum' => 'numeric|gt:100',
-            'estimated' => 'required|numeric',
-          
+            'minimum' => 'numeric|gt:100|lt:estimated',
+            'estimated' => 'required|numeric|gt:minimum',
+           
             'additional' => 'nullable',
-            'lot_images' => 'required',
+  
             'desc' => 'required',
+
             'start_date' => 'required|date|after:yesterday',
+            'lot_thumbnail' => 'required|mimes:png,jpg',
+            'lot_images' => 'nullable',
             'end_date' =>  'required|date|after:start_date',
        
             'status' => 'nullable',
