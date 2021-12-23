@@ -57,7 +57,7 @@
                                             <div class="form-group">
                                                 <h5>Lot Reference <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="lot_ref" class="form-control"  > <div class="help-block"></div>
+                                                    <input type="number" name="lot_ref" class="form-control"  > <div class="help-block"></div>
                                                 </div>
                                                 @error('lot_ref')
                                                     <span class="alert text-danger">{{ $message }}</span>
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <h5>Year of Production <span class="text-danger">*</span></h5>
+                                                <h5>Year of Lotion <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="number" name="year" class="form-control"  > <div class="help-block"></div>
                                                 </div>
@@ -111,7 +111,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- Second row end --}}
+                                    <h5 class="text-warning mt-4">Lot Image Upload Area</h5>
+                                    <hr>
+                                    {{-- Seventh row start --}}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h5>Lot Thumbnail <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="lot_thumbnail" class="form-control" required="" data-validation-required-message="This field is required"
+                                                    onChange="mainThumbnailShow(this)"> <div class="help-block"></div>
+                                                </div>
+                                                @error('lot_thumbnail')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                                <img src="" id="mainThumbnail" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h5>Lot Multiple Image <span class="text-danger"></span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="lot_images[]" class="form-control"  multiple="" id="multiImg" > <div class="help-block"></div>
+                                                </div>
+                                                @error('lot_images')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                                <div class="row" id="preview_img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 
                                     <hr>
                               
@@ -194,7 +223,7 @@
                                             </div>
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                id="status" name="status" checked value="0">
+                                                id="status" name="status"  value="0">
                                                 <label class="form-check-label" for="status">Reserve</label>
                                             </div>
                                         </div>
@@ -209,21 +238,33 @@
                     </div>
                     <!-- /.col -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
+      
         </div>
+
+
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <script>
+            $(function() {
+                $('.toggle-class').change(function() {
+                    var status = $(this).prop('checked') == true ? 1 : 0;
+                    var lot_items_id = $(this).data('id');
+                    $.ajax({
+                        type: "GET",
+                        dataType: "json",
+                        url: '/admin/changestatus',
+                        data: {'status': status, 'product_id': product_id},
+                        success: function(data){
+                            console.log(data.success)
+                        }
+                    });
+                })
+            })
+        </script>
+
+
+
+
+
                 </x-app-layout>
             

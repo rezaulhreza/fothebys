@@ -36,7 +36,7 @@ class LotStoreRequest extends FormRequest
             'estimated' => 'required|numeric',
           
             'additional' => 'nullable',
-
+            'lot_images' => 'required',
             'desc' => 'required',
             'start_date' => 'required|date|after:yesterday',
             'end_date' =>  'required|date|after:start_date',

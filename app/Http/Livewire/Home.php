@@ -21,7 +21,7 @@ class Home extends Component
         // $paginateLots = LotItem::latest()->paginate(10);
         $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->get();;
         // $lots = LotItem::latest()->paginate(5);
-        $lots =LotItem::whereDate('start_date', '<', Carbon::today())->orderBy('id', 'desc')->take(5)->get();
+        $lots =LotItem::whereDate('start_date', '<=', Carbon::today())->orderBy('id', 'desc')->take(5)->get();
         $lotCount = LotItem::count();
         
         $categories = Category::all();

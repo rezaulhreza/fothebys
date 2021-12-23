@@ -14,6 +14,9 @@ class LotItem extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-
+    public function images()
+    {
+        return $this->hasMany(Image::class,'lot_items_id', 'id');
+    }
     
 }

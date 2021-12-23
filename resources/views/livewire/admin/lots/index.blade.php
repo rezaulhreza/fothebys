@@ -31,6 +31,7 @@
                 <tr>
                     
                     <th>Lot No</th>
+                    <th>Image</th>
                     <th>Title</th>
                     <th>Lot Ref. No</th>
                     <th>Artist</th>
@@ -40,7 +41,9 @@
             <tbody>
                 @foreach($lots as $lot)
                 <tr>
-                    
+                    <td>
+                        <img src="{{ asset($lot->lot_thumbnail) }}" alt=""  style="width: 70px; height:70px;">
+                    </td>
                     <td>{{ $lot->id }}</td>
                     <td>{{ $lot->title }}</td>
                     <td>{{ $lot->lot_ref }}</td>
