@@ -51,5 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource('/admin/category', Category::class);
     Route::resource('/admin/faqs', FAQ::class);
     Route::resource('/admin/lots', LotDetails::class);
+    Route::post('/admin/lots/image/update', [LotDetails::class, 'MultiImageUpdate'])->name('update-lot-image');
+    Route::get('/changestatus', [ProductController::class, 'changeStatus'])->name('change-lot-status');
 
 });

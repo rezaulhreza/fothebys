@@ -209,17 +209,11 @@
                                         <div class="col-md-4">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                id="status" value="{{ old('status', $lot->status) }}" name="status" checked value="1">
-                                                <label class="form-check-label" for="status">Display</label>
+                                                id="status" name="status" checked value="1" {{ $lot->status == 1 ? 'checked': '' }}>
+                                                <label class="form-check-label" for="status">Active Status</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
-                                                id="status" value="{{ old('status', $lot->status) }}" name="status" checked value="0">
-                                                <label class="form-check-label" for="status">Display</label>
-                                            </div>
-                                        </div>
+                                    </div>
                                     </div>
                                     <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                         <button class="mb-2 md:mb-0 bg-red-500 px-5 py-2 text-sm text-white shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel </button>
@@ -231,7 +225,43 @@
                     </div>
                     <!-- /.col -->
 
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box">
+                                <div class="box-header with-border d-flex justify-content-between align-items-center">
+                                    <h3 class="box-title">Update Lot Images</h3>
+                                    <a href="{{ route('lots.index') }}" class="btn btn-primary">Back List Lot</a>
+                                </div>
+                                <div class="box-body">
+                                    <form method="POST" action="{{ route('update-lot-image') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row row-sm">
+                                            @foreach($lot->images as $img)
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="{{ asset($img->photo_name) }}" class="card-img-top" style="height: 100px; width: 100px;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                    <a href="" class="btn btn-sm btn-danger" id="delete" title="Delete Data"><i class="fa fa-trash"></i> </a>
+                                                    </h5>
+                                                <p class="card-text">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                                                        <input class="form-control" type="file"
+                                                    name="multi_img[ {{ $img->id }} ]">
+                                                    </div>
+                                                </p>
+                                                </div>
+                                            </div>
+                                        </div><!--  end col md 3		 -->
 
+                                        @endforeach
+                                    </div>
+                                    <div class="text-xs-right">
+                                        <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                                    </div>
+                                    <br><br>
+                                </form>
 
 
 

@@ -17,7 +17,7 @@
     >
       <div class="bg-white rounded-sm mt-5">
         <img
-        src="{{asset('photos/sample.jpeg')}}"
+        src="{{ asset($lot->lot_thumbnail) }}"
           class="h-40 rounded-md"
           alt=""
         />

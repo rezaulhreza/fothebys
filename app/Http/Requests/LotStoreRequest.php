@@ -39,9 +39,11 @@ class LotStoreRequest extends FormRequest
   
             'desc' => 'required',
 
+            'lot_thumbnail' => 'required|mimes:png,jpg,gif',
+            'lot_images' => 'required|mimes:png,jpg,gif',
+
             'start_date' => 'required|date|after:yesterday',
-            'lot_thumbnail' => 'required|mimes:png,jpg',
-            'lot_images' => 'nullable',
+            
             'end_date' =>  'required|date|after:start_date',
        
             'status' => 'nullable',

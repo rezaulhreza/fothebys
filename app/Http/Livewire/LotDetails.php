@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
-use Image;
 use App\Models\LotItem;
 use Livewire\Component;
 use App\Models\Category;
@@ -11,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Image as ModelsImage;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\LotStoreRequest;
 
 class LotDetails extends Component
@@ -24,6 +24,7 @@ class LotDetails extends Component
      */
     public function index()
     {
+  
          $lots = LotItem::with(['category','images'])->latest()->get();
         return view('livewire.admin.lots.index',compact('lots'));
     }
@@ -163,7 +164,39 @@ class LotDetails extends Component
             ]);
            
 
-           
+            if($request->file('lot_thumbnail')){
+                // if($lot->lot_thumbnail !='thumbnail.jpg'){
+                //     unlink($lot->lot_thumbnail);
+                // }
+                $upload_location = 'upload/lots/thumbnail/';
+                $file = $request->file('lot_thumbnail');
+                $name_gen = hexdec(uniqid()).'.'.$file->getClientOriginalExtension();
+                Image::make($file)->resize(600,600)->save($upload_location.$name_gen);
+                $save_url = $upload_location.$name_gen;
+
+                $lot->update([
+                    'lot_thumbnail' => $save_url,
+                ]);
+            }
+
+            // if($request->file('lot_images'))
+            // {
+            //     $lot_images = ModelsImage::where('lot_id', '=',$lot->id)->get();
+            //     foreach ($lot_images as $value) {
+            //             unlink($value->photo_name);
+            //     }
+            //     $images = $request->file('lot_images');
+            //     foreach ($images as $single_image) {
+            //         $upload_location = 'upload/lots/multi_images/';
+            //         $name_gen = hexdec(uniqid()).'.'.$single_image->getClientOriginalExtension();
+            //         Image::make($single_image)->resize(600,600)->save($upload_location.$name_gen);
+            //         $save_url = $upload_location.$name_gen;
+            //         ModelsImage::create([
+            //             'lot_id' => $lot->id,
+            //             'photo_name' => $save_url,
+            //         ]);
+            //     }
+            // }
 
             
 
