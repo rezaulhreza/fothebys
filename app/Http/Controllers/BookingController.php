@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -24,6 +25,7 @@ class BookingController extends Controller
     public function create()
     {
         //
+        return view('livewire.booking.create');
     }
 
     /**
@@ -34,7 +36,36 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $storeData = $request->validate([
+        //     'reason' => 'required|max:255',
+        //     'desc' => 'required|max:255',
+        //     'contact' => 'required|max:255',
+        //     'address' => 'required|max:255',
+        //     'post_code' => 'required|max:255',
+        //     'status' => 'nullable'
+
+            
+           
+        // ]);
+        //  dd($storeData);
+         $request->validate([
+               
+            'reason' => 'required|max:255',
+            'desc' => 'required|max:255',
+            'contact' => 'required|max:255',
+            'address' => 'required|max:255',
+            'post_code' => 'required|max:255',
+            'status' => 'nullable'
+        ]);
+        $user = auth()->user();
+        $input =  $request->all();
+        $input['user_id'] = auth()->id();
+        
+        // dd($input);
+        Booking::create($input);
+        // $bookings = Booking::create($storeData);
+
+        return view('livewire.booking.success');
     }
 
     /**

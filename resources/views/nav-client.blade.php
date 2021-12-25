@@ -100,6 +100,12 @@
     </a>
 
 
+    <a href="{{ route('booking.create') }}" class="w-full block py-4
+    md:py-2
+    px-2 text-center hover:bg-red-600 text-sm  text-white">
+    <i class="fas fa-hand-holding-usd fa-2x"></i> <br>
+     Become a seller/Buyer
+   </a>
 
 
   
@@ -120,12 +126,12 @@
             <a href="{{ route('user.account') }}" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
               <img class="w-5 h-5" src="https://img.icons8.com/nolan/64/settings--v1.png"/><p>Profile Settings</p>
             </a>
-            <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+            {{-- <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
               <img class="w-5 h-5" src="https://img.icons8.com/nolan/64/messages-mac.png"/> <p>Messages</p>
             </a>
             <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
               <img class="w-5 w-5" src="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-booking-hotel-service-becris-lineal-color-becris.png"/>Manage Bookings
-            </a>
+            </a> --}}
             <div class="h-0 my-2 border border-solid border-t-0 border-blueGray-800 opacity-25"></div>
 
                     <form action="{{ route('logout') }}" method="post" 
@@ -159,12 +165,6 @@
  
     @guest
 
-    <a href="{{ route('login') }}" class="w-full block py-4
-    md:py-2
-    px-2 text-center hover:bg-red-600 text-sm  text-white">
-    <i class="fas fa-hand-holding-usd fa-2x"></i> <br>
-     Become a seller/Buyer
-   </a>
 
      <a href="{{ route('login') }}" class="w-full block py-4
      md:py-2
