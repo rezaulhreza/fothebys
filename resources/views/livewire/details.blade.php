@@ -39,12 +39,12 @@
 
   <div class="row-span-2">
     
-    <div class="grid grid-cols-3 px-10 gap-2">
+    <div class="grid grid-cols-3 px-10 gap-3">
       @foreach($lot->images as $img)
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center static items-center">
         <a class="cursor-pointer" href="#">
           <div class="hover:scale-105 transform transition-all duration-500">
-            <img class="h-30 rounded-lg"
+            <img class="h-30 "
             src="{{ asset($img->photo_name ) }} " alt="image" />
           </div>
         </a>
@@ -67,9 +67,28 @@
   <p class="font-light">Auction Ends in: {{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}} days</p>
   <h1 class="text-xl">Description</h2>
   <p class="font-light">{!!$lot->desc!!}</p>
+  Latest Bid:<p class="font-bold text-xl">£ {{$bids}}</p>
+ 
 
 </div>
-<div class="border-b border-red-100"></div>
+<div class="border-b border-red-100">
+
+  @auth
+                
+  <form action="{{ route('lot.bids',$lot) }}" method="post" class="px-6">
+    @csrf
+    <label for="price" class="font-nold text-lg">Place Bid</label>
+    <input type="text" class="bg-gray-400 rounded-lg p-2 px-2 m-2" name="price">
+    @error('price')
+    <span class="alert text-danger">{{ $message }}</span>
+    @enderror
+    <button class="bg-red-700 text-white p-2 m-2 rounded-full">Submit</button>
+  </form>
+
+  @endauth
+
+</div>
+
 
 
 

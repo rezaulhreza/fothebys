@@ -26,24 +26,11 @@
 
 
 
-  {{-- <div class="min-h-screen bg-blue-500 p-20 text-white">
-    <p class="text-9xl mt-64">Fixed Bottom Nav!</p>
-  </div> --}}
-  
-  <!-- fixed nav -->
-  {{-- <div class="bg-white p-5 text-center rounded-sm mb-6">
-    ShareNow
-    
-    </div> --}}
-    {{-- <div> --}}
-      
 
    
       
   <nav  class="fixed h-15 border border-t-900 bottom-0 inset-x-0 bg-gradient-to-br from-purple-200 via-purple-400 to-purple-800 rounded-sm flex justify-between  uppercase font-mono mb-0 ">
-    {{-- <a href="/" class="w-full block py-5 px-3 text-center hover:bg-red-600 text-lg   text-white transition duration-300">
-  <img class="inline object-cover w-15 border-red-600 h-12 mr-2 rounded " src="{{asset('photos/logo.jpg')}}" alt="logo">
-  </a> --}}
+
     
     
     <a href="/" class="w-full py-4
@@ -85,12 +72,12 @@
 
   
 
-    <a href="/" wire:click="render" class="w-full block py-4
+    {{-- <a href="/" wire:click="render" class="w-full block py-4
     md:py-2
     px-2 text-center hover:bg-red-600 text-sm   text-white">
       <i class="fas fa-gavel fa-2x"></i> <br>
       Auctions
-    </a>
+    </a> --}}
 
     <a href="/" wire:click="render" class="w-full block py-4
     md:py-2
@@ -104,7 +91,7 @@
     md:py-2
     px-2 text-center hover:bg-red-600 text-sm  text-white">
     <i class="fas fa-hand-holding-usd fa-2x"></i> <br>
-     Become a seller/Buyer
+    Booking
    </a>
 
 

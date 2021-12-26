@@ -20,9 +20,9 @@
                         <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-auction-stock-market-wanicon-flat-wanicon.png"/>
                       </div>
                       <div class="text">
-                          <p class="text-xs text-gray-600" style="font-size: 0.5rem;">Apply for</p>
-                          <p class="text-xs font-semibold text-gray-900">Membership</p>
-                          <p class="text-xs text-gray-600" style="font-size: 0.5rem;">Today</p>
+                          <p class="text-sm text-gray-600" style="font-size: 0.8rem;">Want to become a seller?</p>
+                          <p class="text-lg font-semibold text-gray-900"><a href="{{ route('booking.create') }}">Book Appointment</a></p>
+                          <p class="text-sm text-gray-600" style="font-size: 0.8rem;">Today</p>
                       </div>
                   </button>
               </div>

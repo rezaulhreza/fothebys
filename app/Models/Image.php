@@ -15,6 +15,6 @@ class Image extends Model
 
     public function lot()
     {
-        return $this->belongsTo(Product::class, 'lot_id', 'id');
+        return $this->belongsTo(LotItem::class, 'lot_id', 'id');
     }
 }

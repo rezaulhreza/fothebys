@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BidController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LotController;
@@ -37,7 +38,9 @@ Route::get('/lot/detail/{id}/{lot_ref}', [LotSpecific::class,'lotDetail'])->name
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 // Route::get('/booking', BookingComponent::class)->name('booking.reserve');
 Route::get('/booking', [BookingController::class,'create'])->name('booking.create');
+// Route::get('/bid/successful', [BidController::class,'create'])->name('bid.create');
 Route::post('/booking', [BookingController::class,'store']);
+Route::post('/lot/{lot}/bids',[BidController::class,'store'])->name('lot.bids');
 
 // Route::get('/booking',[BookingController::class,'thanks'])->name('thanks');
 
