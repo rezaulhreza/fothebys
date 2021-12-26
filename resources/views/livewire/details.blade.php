@@ -39,12 +39,12 @@
 
   <div class="row-span-2">
     
-    <div class="grid grid-cols-3 px-10 gap-3">
+    <div class="px-10 grid grid-cols-4 gap-4">
       @foreach($lot->images as $img)
       <div class="flex justify-center static items-center">
         <a class="cursor-pointer" href="#">
-          <div class="hover:scale-105 transform transition-all duration-500">
-            <img class="h-30 "
+          <div class="hover:scale-105 transform transition-all static duration-500">
+            <img class="h-25 "
             src="{{ asset($img->photo_name ) }} " alt="image" />
           </div>
         </a>

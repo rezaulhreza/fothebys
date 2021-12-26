@@ -17,6 +17,7 @@ class LotSpecific extends Controller
     $category = Category::latest()->get();
     // $bids = Bid::latest()->get();
     $bids =  DB::table('bids')->select('*')->where('lot_item_id','=',$id)->max('price');
+    
     $lot = LotItem::with(['category','bids'])->findOrFail($id);
     $related=LotItem::where('category_id',$lot->category_id) ->where('lot_ref', '!=', $lot->lot_ref)->take(8)->get();
     // $related=LotItem::skip(0)->take(8)->get()->where('category_id',$lot->category_id);

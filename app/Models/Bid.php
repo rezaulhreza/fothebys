@@ -11,6 +11,14 @@ class Bid extends Model
 
     protected $fillable= [
 
-        'user_id','price'
+        'user_id','price','lot_item_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function lot()
+    {
+        return $this->belongsTo(LotItem::class);
+    }
 }

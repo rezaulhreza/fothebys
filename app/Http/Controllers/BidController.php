@@ -14,7 +14,7 @@ class BidController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -22,10 +22,10 @@ class BidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view ('livewire.lot-success');
-    }
+    // public function create()
+    // {
+    //     return view ('livewire.lot-success');
+    // }
 
     /**
      * Store a newly created resource in storage.
