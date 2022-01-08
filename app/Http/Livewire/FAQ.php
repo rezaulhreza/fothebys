@@ -17,8 +17,20 @@ class FAQ extends Component
     
     public function index()
     {
+        $search=request()->query('search');
+        if($search){
+          $faqs=  ModelsFaq::where('question','LIKE',"%{$search}%")
+            ->orWhere('answer','LIKE',$search)
+            ->orWhere('created_at','LIKE',$search)
+            ->orWhere('updated_at','LIKE',$search)
+    
+            ->orderBy('id','DESC')->latest()->paginate(5);
+        }else{
+            $faqs = ModelsFaq::latest()->paginate(3);
+        }
+       
 
-        $faqs = ModelsFaq::latest()->paginate(3);
+      
         return view('livewire.admin.faqs.index',compact('faqs'));
     }
 

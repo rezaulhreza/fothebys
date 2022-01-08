@@ -14,8 +14,18 @@ class Category extends Component
 
     public function index()
     {
-
-        $category = ModelsCategory::latest()->paginate(10);
+        $search=request()->query('search');
+        if($search){
+          $category=  ModelsCategory::where('name','LIKE',"%{$search}%")
+            ->orWhere('description','LIKE',$search)
+            ->orWhere('created_at','LIKE',$search)
+            ->orWhere('updated_at','LIKE',$search)
+    
+            ->orderBy('id','DESC')->latest()->paginate(10);
+        }else{
+            $category = ModelsCategory::latest()->paginate(10);
+        }
+       
         return view('livewire.admin.category.index',compact('category'));
     }
 
