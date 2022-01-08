@@ -36,17 +36,6 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        // $storeData = $request->validate([
-        //     'reason' => 'required|max:255',
-        //     'desc' => 'required|max:255',
-        //     'contact' => 'required|max:255',
-        //     'address' => 'required|max:255',
-        //     'post_code' => 'required|max:255',
-        //     'status' => 'nullable'
-
-            
-           
-        // ]);
         //  dd($storeData);
          $request->validate([
                

@@ -24,8 +24,19 @@ class LotDetails extends Component
      */
     public function index()
     {
-  
+        $search=request()->query('search');
+        if($search){
+          $lots=  LotItem::where('title','LIKE',"%{$search}%")
+            ->orWhere('artist','LIKE',$search)
+            ->orWhere('year','LIKE',$search)
+            ->orWhere('desc','LIKE',$search)
+            ->orWhere('lot_ref','LIKE',$search)
+            ->orWhere('category_id','LIKE',$search)
+    
+            ->orderBy('id','DESC')->get();
+        }else{
          $lots = LotItem::with(['category','images'])->latest()->get();
+        }
         return view('livewire.admin.lots.index',compact('lots'));
     }
 

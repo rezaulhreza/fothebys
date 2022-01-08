@@ -72,8 +72,9 @@
 
 </div>
 <div class="border-b border-red-100">
+  
 
-  @auth
+
                 
   <form action="{{ route('lot.bids',$lot) }}" method="post" class="px-6">
     @csrf
@@ -85,7 +86,7 @@
     <button class="bg-red-700 text-white p-2 m-2 rounded-full">Submit</button>
   </form>
 
-  @endauth
+
 
 </div>
 

@@ -35,7 +35,14 @@
       </div>
   </div>
 </div><!-- end hero -->
-              
+      
+
+@forelse ($lots as $lot)
+    
+@empty
+    No results found for {{request()->query('search')}}
+    
+@endforelse
           
           
 @if ($lotCount>0) 

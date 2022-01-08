@@ -31,7 +31,7 @@
                             <div class="md:flex flex-row md:space-x-4 w-full text-xs">
                                 <div class="mb-3 space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2"><h1>Question</h1> <abbr title="required">*</abbr></label>
-                                    <input wire:model="question" placeholder="Faq Name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"  type="text" name="name" value="{{ $faqs->question }}" id="question">
+                                    <input wire:model="question" placeholder="Faq Name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"  type="text" name="question" value="{{ $faqs->question }}" id="question">
                                     
                                     @error('question') <span class="text-red-500">{{ $message }}</span>@enderror
                                 </div>

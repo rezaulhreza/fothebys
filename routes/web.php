@@ -1,22 +1,23 @@
 <?php
 
-use App\Http\Controllers\BidController;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LotController;
-use App\Http\Controllers\LotSpecific;
-use App\Http\Controllers\ProductController;
-use App\Http\Livewire\Admin\Account as AdminAccount;
-use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
-use App\Http\Livewire\BookingComponent;
-use App\Http\Livewire\Category;
 use App\Http\Livewire\FAQ;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Category;
 use App\Http\Livewire\LotDetails;
-use App\Http\Livewire\User\Account as UserAccount;
-use App\Http\Livewire\User\Dashboard as UserDashboard;
-
+use App\Http\Controllers\LotSpecific;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BidController;
+
+use App\Http\Controllers\BookingController;
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Livewire\User\Account as UserAccount;
+use App\Http\Livewire\Admin\Account as AdminAccount;
+
+use App\Http\Livewire\User\Dashboard as UserDashboard;
+use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,24 +31,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class);
-Route::get('/home', Home::class);
+Route::get('/home', Home::class)->name('home');
 Route::get('/fothebys', Home::class);
+
+Route::get('/search', Home::class,'search');
+
+Route::get('/autocomplete', Home::class,'autocomplete')->name('autocomplete');
 
 Route::get('/faqs', Faq::class)->name('faq.show');
 Route::get('/lot/detail/{id}/{lot_ref}', [LotSpecific::class,'lotDetail'])->name('lot-specific-details');
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
-// Route::get('/booking', BookingComponent::class)->name('booking.reserve');
-Route::get('/booking', [BookingController::class,'create'])->name('booking.create');
-// Route::get('/bid/successful', [BidController::class,'create'])->name('bid.create');
-Route::post('/booking', [BookingController::class,'store']);
+
 Route::post('/lot/{lot}/bids',[BidController::class,'store'])->name('lot.bids');
 
 // Route::get('/booking',[BookingController::class,'thanks'])->name('thanks');
+Route::get('newsletter',[NewsletterController::class, 'create']);
+Route::post('newsletter',[NewsletterController::class, 'store'])->name('newsletter.store');
+
 
 //user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboard::class)->name('user.dashboard');
     Route::get('/user/account', UserAccount::class)->name('user.account');
+    Route::post('/lot/{lot}/bids',[BidController::class,'store'])->name('lot.bids');
+    // Route::get('/booking', BookingComponent::class)->name('booking.reserve');
+Route::get('/booking', [BookingController::class,'create'])->name('booking.create');
+// Route::get('/bid/successful', [BidController::class,'create'])->name('bid.create');
+Route::post('/booking', [BookingController::class,'store']);
    
 });
 

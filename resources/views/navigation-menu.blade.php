@@ -15,7 +15,7 @@
              {{-- <img src="#" class="h-6 mr-2" alt="Windster Logo"> --}}
              <img class="inline object-cover w-15 border-red-600 h-12 mr-2 rounded " src="{{asset('photos/logo.jpg')}}" alt="logo">
              </a>
-             <form action="#" method="GET" class="hidden lg:block lg:pl-32">
+             {{-- <form action="#" method="GET" class="hidden lg:block lg:pl-32">
                 <label for="topbar-search" class="sr-only">Search</label>
                 <div class="mt-1 relative lg:w-64">
                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -25,7 +25,14 @@
                    </div>
                    <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-white   text-lg sm:text-sm rounded-sm focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
                 </div>
-             </form>
+             </form> --}}
+
+             <div class="form-group">
+
+                <input type="text" class="form-controller" id="search" name="search" value="">
+        
+        
+                </div>
           </div>
           <div class="flex items-center">
              <button id="toggleSidebarMobileSearch" type="button" class="lg:hidden text-gray-500 hover:text-white   text-lg hover:bg-purple-500p-2 rounded-sm">

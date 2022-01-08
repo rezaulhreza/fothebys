@@ -55,7 +55,7 @@ class FAQ extends Component
         $updateData = $request->validate([
             'question' => 'max:255',
             'answer' => 'max:1050'
-            ,
+            
         ]);
         // dd($updateData);
         ModelsFaq::whereId($id)->update($updateData);
@@ -67,7 +67,7 @@ class FAQ extends Component
         $faqs = ModelsFaq::findOrFail($id);
         $faqs->delete();
 
-        return redirect('/admin/category')->with('completed', 'Student has been deleted');
+        return redirect()->route('faqs.index')->with('completed', 'FAQ has been deleted');
     }
 
 

@@ -13,7 +13,7 @@ class FaqFactory extends Factory
      */
     public function definition()
     {
-        $question=$this->faker->text(10);
+        $question=$this->faker->words(5);
         $answer=$this->faker->text(50);
         return [
             //
