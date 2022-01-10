@@ -58,7 +58,7 @@
 
 <div class="px-10 mt-5 border-t border-red-100 p-8">
   <span class="uppercase font-bold text-xl "
-    ><p class="font-light">{{$lot->title}}</p></span
+    ><p class="font-light text-2xl"><strong>{{$lot->title}}</strong></p></span
   >
   <p class="font-light">By: {{$lot->artist}}, prodcued in {{$lot->year}}</p>
  
@@ -67,6 +67,7 @@
   <p class="font-light">Auction Ends in: {{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}} days</p>
   <h1 class="text-xl">Description</h2>
   <p class="font-light">{!!$lot->desc!!}</p>
+ 
   Latest Bid:<p class="font-bold text-xl">£ {{$bids}}</p>
  
 

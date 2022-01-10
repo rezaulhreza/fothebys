@@ -23,12 +23,15 @@ class Home extends Component
         
         if($search){
           $lots=  LotItem::where('title','LIKE',"%{$search}%")
+          ->whereDate('start_date', '<=', Carbon::today())
             ->orWhere('artist','LIKE',$search)
             ->orWhere('year','LIKE',$search)
             ->orWhere('desc','LIKE',$search)
             ->orWhere('lot_ref','LIKE',$search)
             ->orWhere('category_id','LIKE',$search)
             ->orderBy('id','DESC')->get();
+
+            
         }
         else{
             $lots =LotItem::whereDate('start_date', '<=', Carbon::today())->orderBy('id', 'desc')->take(5)->get();

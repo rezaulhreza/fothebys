@@ -37,23 +37,25 @@
 </div><!-- end hero -->
       
 
-@forelse ($lots as $lot)
-    
-@empty
-    No results found for {{request()->query('search')}}
-    
-@endforelse
-          
+
+
+
           
 @if ($lotCount>0) 
           <div>   
               <div class="px-10 mt-5">
                 <span class="uppercase font-bold text-2xl "
-                  >Online Auctions</span
+                  >Ongoing Auctions</span
                 >
               </div>
 
-          
+              @forelse ($lots as $lot)
+    
+              @empty
+              <div class="px-10 mt-5 text-2xl"></p> No results found for <strong>{{request()->query('search')}}</strong> in Ongoing Auctions!</div>
+                  
+              @endforelse
+                    
                 
               <div class="px-10 grid grid-cols-4 gap-4">
 

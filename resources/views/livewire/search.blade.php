@@ -1,6 +1,6 @@
 <form action="/" method="get">
     <div class="w-2/3 h-10 pl-3 pr-2 m-2 bg-white border rounded-full flex justify-between items-center relative">
-      <input type="search" name="search" id="search" placeholder="Search"
+      <input type="search" name="search" id="search" placeholder="Search ongoing auctions"
              class="appearance-none w-full outline-none focus:outline-none active:outline-none"
              value="{{request()->query('search')}}"
              />
