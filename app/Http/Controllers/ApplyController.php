@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LotItem;
+use App\Models\Application;
 use Illuminate\Http\Request;
 
-class BidController extends Controller
+class ApplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BidController extends Controller
      */
     public function index()
     {
-        
+        return view('livewire.apply-component');
     }
 
     /**
@@ -22,10 +22,10 @@ class BidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     return view ('livewire.lot-success');
-    // }
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -33,24 +33,32 @@ class BidController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LotItem $lot, Request $request)
+    public function store(Request $request)
     {
-       
         $request->validate([
-               
-            'price' => 'required',
+           
+            'address' => 'required|max:4096',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,jiff|max:8048',
+            'postcode' => 'required|max:4096',
+            'country' => 'required|max:4096',
+            'type' => 'required|max:4096',
+            'contact' => 'required|max:4096',
+        'about' => 'required|max:4096',
+    
         ]);
         $user = auth()->user();
         $input =  $request->all();
         $input['user_id'] = auth()->id();
-
-        $lot->bids()->create($input
-        );
-
-        
-        // dd($lot);
-
-        return view('livewire.lot-success');
+        if ($image = $request->file('image')) {
+            $imageDestinationPath = 'upload/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($imageDestinationPath, $postImage);
+            $input['image'] = "$postImage";
+        }
+        // dd($input);
+        Application::create($input);
+       
+        return view('livewire.booking.success');
     }
 
     /**

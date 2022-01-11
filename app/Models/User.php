@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Models\Bid;
+use App\Models\Apply;
+use App\Models\Booking;
+use App\Models\Application;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -67,4 +70,8 @@ class User extends Authenticatable
     public function bids(){
         return $this->hasMany(Bid::class);
     }
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
+
 }

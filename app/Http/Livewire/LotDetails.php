@@ -74,6 +74,9 @@ class LotDetails extends Component
             'category_id' => $request->input('category_id'),
             'title' => $request->input('title'),
             'lot_ref' => $request->input('lot_ref'),
+            'subject' => $request->input('subject'),
+            'period' => $request->input('period'),
+            'location' => $request->input('location'),
             'artist' => $request->input('artist'),
             'year' => $request->input('year'),
             'minimum' => $request->input('minimum'),
@@ -170,7 +173,9 @@ class LotDetails extends Component
             'estimated' => $request->input('estimated'),
             'additional' => $request->input('additional'),
             'desc' => $request->input('desc'),
-
+            'subject' => $request->input('subject'),
+            'period' => $request->input('period'),
+            'location' => $request->input('location'),
             'status' => $request->input('status')|false
             ]);
            
@@ -190,24 +195,7 @@ class LotDetails extends Component
                 ]);
             }
 
-            // if($request->file('lot_images'))
-            // {
-            //     $lot_images = ModelsImage::where('lot_id', '=',$lot->id)->get();
-            //     foreach ($lot_images as $value) {
-            //             unlink($value->photo_name);
-            //     }
-            //     $images = $request->file('lot_images');
-            //     foreach ($images as $single_image) {
-            //         $upload_location = 'upload/lots/multi_images/';
-            //         $name_gen = hexdec(uniqid()).'.'.$single_image->getClientOriginalExtension();
-            //         Image::make($single_image)->resize(600,600)->save($upload_location.$name_gen);
-            //         $save_url = $upload_location.$name_gen;
-            //         ModelsImage::create([
-            //             'lot_id' => $lot->id,
-            //             'photo_name' => $save_url,
-            //         ]);
-            //     }
-            // }
+          
 
             
 

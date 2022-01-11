@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplyController;
 use App\Http\Livewire\FAQ;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Category;
@@ -12,12 +13,13 @@ use App\Http\Controllers\BookingController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\User\Account as UserAccount;
 use App\Http\Livewire\Admin\Account as AdminAccount;
 
 use App\Http\Livewire\User\Dashboard as UserDashboard;
 use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
-
+use App\Http\Livewire\ApplyComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +35,11 @@ use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
 Route::get('/', Home::class);
 Route::get('/home', Home::class)->name('home');
 Route::get('/fothebys', Home::class);
+Route::get('/about', AboutComponent::class);
 
 Route::get('/search', Home::class,'search');
-
-Route::get('/autocomplete', Home::class,'autocomplete')->name('autocomplete');
+Route::get('/application', [ApplyController::class,'index'])->name('application.index');
+Route::post('/application', [ApplyController::class,'store'])->name('application.store');
 
 Route::get('/faqs', Faq::class)->name('faq.show');
 Route::get('/lot/detail/{id}/{lot_ref}', [LotSpecific::class,'lotDetail'])->name('lot-specific-details');
@@ -58,7 +61,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 Route::get('/booking', [BookingController::class,'create'])->name('booking.create');
 // Route::get('/bid/successful', [BidController::class,'create'])->name('bid.create');
 Route::post('/booking', [BookingController::class,'store']);
-   
+
 });
 
 

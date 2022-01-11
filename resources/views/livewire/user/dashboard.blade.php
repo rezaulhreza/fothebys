@@ -7,8 +7,8 @@
             <p class="font-serif font-semibold">{{Auth::user()->name}}</p>
             <span class="text-sm text-gray-400">{{Auth::user()->email}}</span>
             <span class="text-sm text-gray-400">{{Auth::user()->role}}</span>
-            <span class="text-sm text-gray-400">London, United Kingdom</span>
-            <span class="text-sm text-gray-400">Registered Seller</span>
+          
+            <span class="text-sm text-gray-400">Registered</span>
         </div>
 
 
@@ -40,7 +40,7 @@
         
         <div class="flex justify-between items-center">
             <button class="w-full py-2 border-b-2 border-red-500">
-                <h1 class="font-serif font-semibold">Your Listings</h1>
+                <h1 class="font-serif font-semibold">Your Interests</h1>
             </button>
             {{-- <button class="w-full py-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

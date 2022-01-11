@@ -67,7 +67,7 @@
                     <input type="hidden" name="status">
 
                     <div>
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium">Post</button>
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded font-medium">Post</button>
                     </div>
                 </form>
 

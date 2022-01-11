@@ -38,7 +38,7 @@
                                       
                                     </div>
                                     {{-- First row end --}}
-                                    <h5 class=" text-lg text-gray-700   mt-4">LotInformation Area</h5>
+                                    <h5 class=" text-lg text-gray-700   mt-4">Lot Information Area</h5>
                                     <hr>
                                     {{-- Second row start --}}
                                     <div class="row">
@@ -66,6 +66,47 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <h5>Subject <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="subject" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('subject')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Location<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="location" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('location')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Auction Period <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <select class="custom-select" aria-label="Default select example" name="period">
+                                                        <option selected>Select Auction Period</option>
+                                                      
+                                                            <option value="morning">Morning</option>
+                                                            <option value="afternoon">Afternoon</option>
+                                                            <option value="evening">Evening</option>
+
+                                                       
+                                                    </select>
+                                                </div>
+                                                @error('period')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <h5>Artist<span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="artist" class="form-control"> <div class="help-block"></div>
@@ -77,7 +118,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <h5>Year of Lotion <span class="text-danger">*</span></h5>
+                                                <h5>Year of Production <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="number" name="year" class="form-control"  > <div class="help-block"></div>
                                                 </div>
@@ -162,7 +203,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Minimum Price <span class="text-danger"></span></h5>
+                                                <h5>Asking Price  Price <span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <input type="number" name="minimum" class="form-control"> <div class="help-block"></div>
                                                 </div>

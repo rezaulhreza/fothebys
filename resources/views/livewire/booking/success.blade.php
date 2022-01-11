@@ -6,7 +6,7 @@
             </path>
         </svg>
         <div class="text-center">
-            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Booking Success!</h3>
+            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Success!</h3>
             <p class="text-gray-600 my-2">Thank you. Our evaluation team will soon contact you.</p>
             <p> Have a great day!  </p>
             <div class="py-10 text-center">

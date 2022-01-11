@@ -81,7 +81,7 @@
       Auctions
     </a> --}}
 
-    <a href="/" wire:click="render" class="w-full block py-4
+    <a href="/about" wire:click="render" class="w-full block py-4
     md:py-2
     px-2 text-center hover:bg-red-600 text-sm   text-white">
      <i class="fas fa-address-card fa-2x"></i> <br>
@@ -89,18 +89,26 @@
     </a>
 
 
-    <a href="{{ route('booking.create') }}" class="w-full block py-4
+
+  
+    @auth
+
+ 
+    <a href="{{'/booking'}}" class="w-full block py-4
     md:py-2
     px-2 text-center hover:bg-red-600 text-sm  text-white">
     <i class="fas fa-hand-holding-usd fa-2x"></i> <br>
     Booking
    </a>
 
+   <a href="{{'/application'}}" class="w-full block py-4
+   md:py-2
+   px-2 text-center hover:bg-red-600 text-sm  text-white">
+   <i class="fas fa-hands-helping fa-2x"></i> <br>
+   Membership
+  </a>
 
-  
-    @auth
 
- 
     
           <button class="text-white py-4 w-full
           md:py-2

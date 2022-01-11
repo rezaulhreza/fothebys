@@ -30,4 +30,8 @@ class Dashboard extends Component
     return view('livewire.admin.dashboard.admin-dashboard',compact('categoryCount', 'userCount', 'faqCount','lotCount','users','bookings','bids','bookingCount','bidCount'))->layout('layouts.app');
 
     }
+
+    
+
+
 }

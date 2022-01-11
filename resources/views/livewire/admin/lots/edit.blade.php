@@ -67,6 +67,47 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <h5>Subject <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text"  value="{{ old('subject', $lot->subject) }}" name="subject" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('subject')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Location<span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" value="{{ old('location', $lot->location) }}" name="location" class="form-control"  > <div class="help-block"></div>
+                                                </div>
+                                                @error('location')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Auction Period <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <select class="custom-select" aria-label="Default select example" name="period">
+                                                        <option selected>{{ ucfirst(old('period', $lot->period)) }}</option>
+                                                      
+                                                            <option value="morning">Morning</option>
+                                                            <option value="afternoon">Afternoon</option>
+                                                            <option value="evening">Evening</option>
+
+                                                       
+                                                    </select>
+                                                </div>
+                                                @error('period')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <h5>Artist<span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <input type="text" value="{{ old('artist', $lot->artist) }}" name="artist" class="form-control"> <div class="help-block"></div>
@@ -149,7 +190,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Minimum Price <span class="text-danger"></span></h5>
+                                                <h5>Asking Price <span class="text-danger"></span></h5>
                                                 <div class="controls">
                                                     <input type="number" value="{{ old('minimum', $lot->minimum) }}" name="minimum" class="form-control"> <div class="help-block"></div>
                                                 </div>

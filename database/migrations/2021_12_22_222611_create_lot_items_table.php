@@ -24,6 +24,9 @@ class CreateLotItemsTable extends Migration
             $table->string('lot_ref')->nullable();
             $table->string('artist');         
             $table->string('year');
+            $table->string('subject');
+            $table->string('period');
+            $table->string('location');
             $table->string('lot_thumbnail')->nullable()->default('thumbnail.jpg');
             $table->unsignedInteger('minimum')->nullable();
             $table->unsignedInteger('estimated')->nullable();

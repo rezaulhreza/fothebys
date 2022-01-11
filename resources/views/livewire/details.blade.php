@@ -60,8 +60,10 @@
   <span class="uppercase font-bold text-xl "
     ><p class="font-light text-2xl"><strong>{{$lot->title}}</strong></p></span
   >
+  <p class="font-light">Subject: {{$lot->subject}}</p>
   <p class="font-light">By: {{$lot->artist}}, prodcued in {{$lot->year}}</p>
- 
+  <p class="font-light">Location: {{$lot->location}}</p>
+  <p class="font-light">Auction Period: {{$lot->period}}</p>
   <p class="font-light">Estimated at: £ {{$lot->minimum}} - £ {{$lot->estimated}}</p>
 
   <p class="font-light">Auction Ends in: {{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}} days</p>
