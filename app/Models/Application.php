@@ -13,7 +13,7 @@ class Application extends Model
 
         'user_id','address','image','postcode','country',
         'type','contact',
-        'about'
+        'about','approved'
     ];
 
     public function user(){

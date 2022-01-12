@@ -1,25 +1,29 @@
 <?php
 
-use App\Http\Controllers\ApplyController;
 use App\Http\Livewire\FAQ;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Category;
 use App\Http\Livewire\LotDetails;
 use App\Http\Controllers\LotSpecific;
+use App\Http\Livewire\AboutComponent;
+use App\Http\Livewire\ApplyComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BidController;
 
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminBidDetails;
 
+use App\Http\Controllers\ApplyController;
+use App\Http\Controllers\AdminUserDetails;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminBookingDetails;
+
 use App\Http\Controllers\NewsletterController;
-use App\Http\Livewire\AboutComponent;
+use App\Http\Controllers\AdminApplicationDetails;
 use App\Http\Livewire\User\Account as UserAccount;
 use App\Http\Livewire\Admin\Account as AdminAccount;
-
 use App\Http\Livewire\User\Dashboard as UserDashboard;
 use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
-use App\Http\Livewire\ApplyComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,9 +76,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/admin/account', AdminAccount::class)->name('admin.account');
     Route::resource('/admin/category', Category::class);
     Route::resource('/admin/faqs', FAQ::class);
+
+
+    Route::resource('/admin/userDetails', AdminUserDetails::class);
+    Route::resource('/admin/bookingDetails', AdminBookingDetails::class);
+    Route::resource('/admin/bidDetails', AdminBidDetails::class);
+    Route::resource('/admin/applicationDetails', AdminApplicationDetails::class);
+
+
     Route::resource('/admin/lots', LotDetails::class);
     Route::resource('/admin/booking', BookingController::class);
     Route::post('/admin/lots/image/update', [LotDetails::class, 'MultiImageUpdate'])->name('update-lot-image');
     Route::get('/changestatus', [LotDetails::class, 'changeStatus'])->name('change-lot-status');
+    
 
 });
