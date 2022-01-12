@@ -63,7 +63,7 @@ class AdminApplicationDetails extends Controller
         $users = User::latest()->get();
         $user = User::all();
         $application = Application::with(['user'])->findOrFail($id);
-        return view('livewire.admin.dashboard.applicationDetails', compact('application', 'user','user'));
+        return view('livewire.admin.dashboard.applicationDetails', compact('application', 'users','user'));
     }
 
     /**

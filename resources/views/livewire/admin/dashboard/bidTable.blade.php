@@ -7,18 +7,18 @@
        </div>
        {{ $bids->links() }}
 
-       <div class="relative mr-6 my-2">
-         <input type="search" class="bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
-         
-  <button type="submit" class="bg-red-500 p-2 m-2 rounded text-white">Search</button>
-       
-       
-       </div>
+      
+       @forelse ($bids as $bid)
+
+       @empty
+          
+           
+       @endforelse
        @foreach($bids as $bid)
        <div class="flow-root">
           <ul role="list" class="divide-y divide-gray-200">
              <li class="py-3 sm:py-4">
-                <div class="flex items-center space-x-4 border-2 border-red-900">
+                <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
                    <div class="flex-shrink-0">
                       
                    </div>
@@ -30,12 +30,13 @@
                         Lot Ref: {{$bid->lot_item_id}}
                        </p>
                       <p class="text-sm text-gray-500 truncate">
-                         <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17727a767e7b57607e7973646372653974787a">Bid amount: £{{$bid->price}}</a>
+                        Bid amount: £{{$bid->price}}
                       </p>
                    </div>
                    <div class="inline-flex items-center text-base font-semibold text-gray-900">
                       <p class="text-sm font-light">Made: </p>{{$bid->updated_at->diffForhumans()}}
                    </div>
+                   <a href="{{ route('bidDetails.edit', $bid->id)}}" class="btn bg-purple-900 text-white btn-sm">View</a>
                 </div>
              </li>
   

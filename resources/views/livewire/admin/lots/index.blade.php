@@ -42,7 +42,7 @@
           @forelse ($lots as $lot)
     
 @empty
-    No results found for {{request()->query('search')}}
+    No results found  {{request()->query('search')}}
     
 @endforelse
           

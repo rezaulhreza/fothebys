@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class AdminBookingDetails extends Controller
@@ -45,7 +47,8 @@ class AdminBookingDetails extends Controller
      */
     public function show($id)
     {
-        //
+        $booking = Booking::with(['user'])->findOrFail($id);
+        return response()->json($booking);
     }
 
     /**
@@ -56,7 +59,10 @@ class AdminBookingDetails extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::latest()->get();
+        $user = User::all();
+        $booking = Booking::with(['user'])->findOrFail($id);
+        return view('livewire.admin.dashboard.bookingDetails', compact('booking', 'users','user'));
     }
 
     /**
@@ -68,7 +74,14 @@ class AdminBookingDetails extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateData = $request->validate([
+            'status' => 'required',
+           
+            
+        ]);
+        //  dd($updateData);
+         Booking::whereId($id)->update($updateData);
+         return back()->with('success','Updated successfully');
     }
 
     /**
@@ -79,6 +92,14 @@ class AdminBookingDetails extends Controller
      */
     public function destroy($id)
     {
-        //
+        $booking = Booking::findOrFail($id);
+       
+        $booking->delete();
+
+        $notification = [
+            'message' => ' Deleted Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 }

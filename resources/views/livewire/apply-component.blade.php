@@ -1,6 +1,8 @@
 
 <x-guest-layout>
 
+
+
     <div class="flex justify-center">
         <div class="w-8/12  p-5 rounded-lg mb-6">
            
@@ -155,7 +157,6 @@
                 </div>
             </form>
         </div>
- 
 
     </x-guest-layout>
 

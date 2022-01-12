@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
+use App\Models\Bid;
 use Illuminate\Http\Request;
 
 class AdminBidDetails extends Controller
@@ -45,7 +48,8 @@ class AdminBidDetails extends Controller
      */
     public function show($id)
     {
-        //
+        $bid = Bid::with(['user'])->findOrFail($id);
+        return response()->json($bid);
     }
 
     /**
@@ -56,7 +60,10 @@ class AdminBidDetails extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::latest()->get();
+        $user = User::all();
+        $bid = Bid::with(['user'])->findOrFail($id);
+        return view('livewire.admin.dashboard.bidDetails', compact('bid', 'users','user'));
     }
 
     /**
@@ -68,7 +75,14 @@ class AdminBidDetails extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateData = $request->validate([
+            'is_active' => 'required',
+           
+            
+        ]);
+        //  dd($updateData);
+         Bid::whereId($id)->update($updateData);
+         return back()->with('success','Updated successfully');
     }
 
     /**
@@ -79,6 +93,14 @@ class AdminBidDetails extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bid = Bid::findOrFail($id);
+       
+        $bid->delete();
+
+        $notification = [
+            'message' => ' Deleted Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 }

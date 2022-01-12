@@ -70,7 +70,7 @@
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                 <form method="post" action="{{ route('userDetails.destroy', $users->id) }}">
                     @csrf
-                    @method('PATCH')
+                    @method('DELETE')
             <button class="mb-2 md:mb-0 bg-red-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500" type="submit">Delete</button>
         </form>
         </div>

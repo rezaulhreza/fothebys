@@ -2,7 +2,7 @@
 
     <div class="bg-white shadow rounded-sm">
         <h1 class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mb-8 text-xl">
-             {{'View Application Details'}}
+             {{'View booking Details'}}
     </div>
     <div class="mt2-">
         
@@ -12,50 +12,54 @@
     <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
         <div class="p-4 border-b">
             <h2 class="text-2xl ">
-                Applicant Information
+                Booking Information
             </h2>
             <p class="text-sm text-gray-500">
-                Personal details and application.
+                Infromation related to booking
             </p>
         </div>
         <div>
-            <form method="post" action="{{ route('applicationDetails.update', $application->id) }}">
+            <form method="post" action="{{ route('bookingDetails.update', $booking->id) }}">
                 @csrf
                 @method('PATCH')
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                
                 <p class="text-gray-600">
-                    Application No.
+                    Booking No.
                 </p>
                 <p> 
-                    {{Str::ucfirst($application->id)}}
+                    {{Str::ucfirst($booking->id)}}
                  
                 </p>
             </div>
+
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                
                 <p class="text-gray-600">
-                    Applicant's Name
+                    Name
                 </p>
-                <p> {{Str::ucfirst($application->user->name)}}
+                <p> {{Str::ucfirst($booking->user->name)}}
                    
                  
                 </p>
             </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-               
-                <p class="text-gray-600">
-                    Government issued photo ID
-                </p>
-             <img src="/upload/{{ $application->image }}" width="Auto" alt="{{$application->image}}">
-               
-            </div>
+  
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                
                 <p class="text-gray-600">
                     Email Address
                 </p>
-                <p> {{Str::ucfirst($application->user->email)}}
+                <p> {{Str::ucfirst($booking->user->email)}}
+                
+                 
+                </p>
+            </div>
+            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+               
+                <p class="text-gray-600">
+                  Contact
+                </p>
+                <p> {{Str::ucfirst($booking->contact)}}
                    
                  
                 </p>
@@ -63,61 +67,60 @@
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                
                 <p class="text-gray-600">
-                    Application Type
+                  Reason
                 </p>
-                <p> {{Str::ucfirst($application->type)}}
+                <p> {{Str::ucfirst($booking->reason)}}
                    
                  
                 </p>
             </div>
-   
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+               
                 <p class="text-gray-600">
-                   Full Address
+                  Message
                 </p>
-                <p>
-                    {{Str::ucfirst($application->address)}}, {{Str::ucfirst($application->postcode)}}, {{Str::ucfirst($application->country)}}
+                <p> {{Str::ucfirst($booking->desc)}}
+                   
+                 
                 </p>
             </div>
-         
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+               
                 <p class="text-gray-600">
-                    Applied
+                  Address
                 </p>
-                <p>
-                    {{Str::ucfirst($application->created_at->diffForHumans())}}
-                </p>
-            </div> 
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    Contact
-                </p>
-                <p>
-                    {{Str::ucfirst($application->contact)}}
+                <p> {{Str::ucfirst($booking->address)}}, {{Str::ucfirst($booking->post_code)}}
+                   
+                 
                 </p>
             </div>
-
+            
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                 <p class="text-gray-600">
-                    Information provided by the Applicant
+               Booking Made
                 </p>
                 <p>
-                    {{Str::ucfirst($application->about)}}
+                    {{Str::ucfirst($booking->created_at->diffForHumans())}}
                 </p>
             </div> 
 
+
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                 <p class="text-gray-600">
-                   Approve
+                   Status
                 </p>
                 <p>
-                    <select class="custom-select" aria-label="Default select example" name="approved">
-                        <option selected>{{Str::ucfirst($application->approved)}}</option>
+                    <select class="custom-select" aria-label="Default select example" name="status">
+                        <option selected>@if ($booking->status==='pending')
+                           Pending
+                        @else
+                           Approved
+                        @endif</option>
                      
-                        <option value="approved">Yes</option>
-                        <option value="pending">No</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
                     </select>
-                    @error('approved')
+                    @error('status')
                         <span class="alert text-danger">{{ $message }}</span>
                     @enderror
                     <button class="mb-2 md:mb-0 bg-green-400 px-5 m-2 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500" type="submit">Update</button>
@@ -126,7 +129,7 @@
             </div>
         </form>
            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <form method="post" action="{{ route('applicationDetails.destroy', $application->id) }}">
+                <form method="post" action="{{ route('bookingDetails.destroy', $booking->id) }}">
                     @csrf
                     @method('DELETE')
             <button class="mb-2 md:mb-0 bg-red-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500" type="submit">Delete</button>

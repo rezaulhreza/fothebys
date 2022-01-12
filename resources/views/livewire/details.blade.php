@@ -60,29 +60,39 @@
   <span class="uppercase font-bold text-xl "
     ><p class="font-light text-2xl"><strong>{{$lot->title}}</strong></p></span
   >
-  <p class="font-light">Subject: {{$lot->subject}}</p>
-  <p class="font-light">By: {{$lot->artist}}, prodcued in {{$lot->year}}</p>
-  <p class="font-light">Location: {{$lot->location}}</p>
-  <p class="font-light">Auction Period: {{$lot->period}}</p>
-  <p class="font-light">Estimated at: £ {{$lot->minimum}} - £ {{$lot->estimated}}</p>
+  <p class="font-light">Subject: <strong>{{$lot->subject}}</strong></p>
+  <p class="font-light">By: <strong>{{$lot->artist}}, prodcued in {{$lot->year}}</strong></p>
+  <p class="font-light">Location: <strong>{{$lot->location}}</strong></p>
+  <p class="font-light">Auction Period: <strong>{{Str::ucfirst($lot->period)}}</strong></p>
+  <p class="font-light">Estimated at:<strong> £ {{$lot->minimum}} - £ {{$lot->estimated}}</strong></p>
 
-  <p class="font-light">Auction Ends in: {{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}} days</p>
+  <p class="font-light">Auction Ends in: <strong>{{ \Carbon\Carbon::parse($lot->end_date)->diffInDays()}} days</strong></p>
   <h1 class="text-xl">Description</h2>
   <p class="font-light">{!!$lot->desc!!}</p>
- 
-  Latest Bid:<p class="font-bold text-xl">£ {{$bids}}</p>
+  @isset($lot->additional)
+  <h1 class="text-xl">Additional Information</h2>
+    <p class="font-light">{!!$lot->additional!!}</p>
+  @endisset
+  
+  <div class="py-3">
+    Latest Bid:@isset ($bids)
+  <strong>£ {{$bids}}</strong>
+  @else
+  <strong> No bid yet! Be the first to make a bid!</strong>
+  @endif
+  </div>
  
 
 </div>
 <div class="border-b border-red-100">
-  
+ 
 
 
                 
   <form action="{{ route('lot.bids',$lot) }}" method="post" class="px-6">
     @csrf
     <label for="price" class="font-nold text-lg">Place Bid</label>
-    <input type="text" class="bg-gray-400 rounded-lg p-2 px-2 m-2" name="price">
+    <input type="number" class="bg-gray-400 rounded-lg p-2 px-2 m-2" name="price">
     @error('price')
     <span class="alert text-danger">{{ $message }}</span>
     @enderror

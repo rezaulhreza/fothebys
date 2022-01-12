@@ -6,19 +6,21 @@
            
             </div>
             @if ($userCount  > 0)
-            {{ $users->links() }} 
-            <div class="relative mr-6 my-2">
-               <input type="search" class="bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
+            {{ $users->links() }}
+
+             @forelse ($users as $user)
+    
+             @empty
                
-        <button type="submit" class="bg-red-500 p-2 m-2 rounded text-white">Search</button>
-             
-             
-             </div>
+                 
+             @endforelse
+
+
              @foreach($users as $user)
              <div class="flow-root">
                 <ul role="list" class="divide-y divide-gray-200">
                    <li class="py-3 sm:py-4">
-                      <div class="flex items-center space-x-4 border-2 border-red-900 m-2 p-2">
+                      <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
                          
                          <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-900 truncate">
