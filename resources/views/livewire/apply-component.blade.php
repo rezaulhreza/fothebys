@@ -55,13 +55,13 @@
                         @enderror
                             </div>
 
-                            <label for="contact">Contact Number</label>
+                            <label for="contact">Contact Number(with country code)</label>
                             <sub>(Our evaluation team will contact you at this number)</sub>
                             <div class="mb-4">
             
                                 <label for="contact" class="sr-only">contact</label>
             
-                                <input type="text" name="contact" id="contact"
+                                <input type="number" name="contact" id="contact"
                                  class="bg-gray-100 border-2 w-2/3 p-4 rounded-lg @error('contact') border-red-500 @enderror" placeholder="your contact">
             
                                 

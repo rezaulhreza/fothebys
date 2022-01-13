@@ -3,5 +3,6 @@
       >Manage Account Details</span
     >
   </div>
+  
     @include('profile.show')
 

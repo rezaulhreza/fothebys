@@ -22,6 +22,7 @@ class CreateApplicationsTable extends Migration
             $table->string('type')->nullable();
             $table->string('contact')->nullable();
             $table->string('about')->nullable();
+            $table->string('approved')->nullable()->default('pending');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
             ->references('id')
