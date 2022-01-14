@@ -108,14 +108,14 @@
               </div>
 
                 @endforeach
-                
+               
               </div>
-           
-
-
+     
             
           </div>
 
+      
+          {{$lots->links()}}
 
 
           
@@ -176,11 +176,9 @@
                 </div>
   
                   @endforeach
-
-          
-                  
+                     
                 </div>
-
+{{$upcoming->links()}}
                 @else 
 
                 <div

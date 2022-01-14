@@ -3,7 +3,7 @@
        <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-bold leading-none text-gray-900">Latest application</h3>
            @if ($applicationCount  > 0)
-         
+          
        </div>
        
              @forelse ($applications as $application)
@@ -20,7 +20,9 @@
                 <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
                   
                    <div class="flex-1 min-w-0">
-                     
+                     <p class="text-sm font-medium text-gray-900 truncate">
+                        Application No: {{$application->id}}
+                      </p>
                       <p class="text-sm font-medium text-gray-900 truncate">
                         Application Type: {{$application->type}}
                       </p>

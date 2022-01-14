@@ -6,7 +6,7 @@
          
        </div>
        @isset ($bookingCount ) 
-       
+
       
        @forelse ($bookings as $booking)
 
@@ -21,11 +21,17 @@
                 <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
                   
                    <div class="flex-1 min-w-0">
+                     <p class="text-sm font-medium text-gray-900 truncate">
+                       Booking No. {{$booking->id}}
+                      </p>
                       <p class="text-sm font-medium text-gray-900 truncate">
-                        {{$booking->reason}}
+                       Booking Reason: {{$booking->reason}}
                       </p>
                       <p class="text-sm text-gray-500 truncate">
-                         <a href="#" class="__cf_email__" data-cfemail="17727a767e7b57607e7973646372653974787a">User Id: {{$booking->user_id}}</a>
+                        User Id: {{$booking->user_id}}
+                      </p>
+                      <p class="text-sm text-gray-500 truncate">
+                        Reason: {{$booking->reason}}
                       </p>
                    </div>
                    <div class="inline-flex items-center text-base font-semibold text-gray-900">

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Category::factory(15)->create();
         // \App\Models\LotItem::factory(5)->create();
         // \App\Models\Faq::factory(5)->create();
+        // \App\Models\Image::factory(5)->create();
     }
 }

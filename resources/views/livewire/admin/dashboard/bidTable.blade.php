@@ -3,7 +3,7 @@
        <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-bold leading-none text-gray-900">Latest Bid</h3>
           @if ($bidCount  > 0)
-         <h5>Total Bid:<strong>{{$bidCount}}</strong></h5>
+
        </div>
        {{ $bids->links() }}
 

@@ -22,6 +22,17 @@
             <form method="post" action="{{ route('userDetails.update', $users->id) }}">
                 @csrf
                 @method('PATCH')
+
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+               
+                    <p class="text-gray-600">
+                    User ID
+                    </p>
+                    <p> {{Str::ucfirst($users->id)}}
+                       
+                     
+                    </p>
+                </div>
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                
                 <p class="text-gray-600">

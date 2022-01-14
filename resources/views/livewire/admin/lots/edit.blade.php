@@ -2,7 +2,7 @@
 <x-app-layout>
     <div class="bg-white shadow rounded-sm">
         <h1 class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mb-8 text-xl">
-             {{'Create Lot'}}
+             {{'Edit Lot'}}
     </div>
     <div class="grid  gap-8 grid-cols-1">
         <div class="flex flex-col ">
@@ -133,6 +133,7 @@
                                             <div class="form-group">
                                                 <h5>Start Date <span class="text-danger">*</span></h5>
                                                 <div class="controls">
+                                                   <sub> {{ old('start_date', $lot->start_date) }}</sub>
                                                     <input type="date" value="{{ old('start_date', $lot->start_date) }}" name="start_date" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
                                                 </div>
                                                 @error('start_date')
@@ -145,6 +146,7 @@
                                             <div class="form-group">
                                                 <h5>End Date <span class="text-danger">*</span></h5>
                                                 <div class="controls">
+                                                    <sub>{{ old('end_date', $lot->end_date) }}</sub>
                                                     <input type="date" value="{{ old('end_date', $lot->end_date) }}" name="end_date" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div>
                                                 </div>
                                                 @error('end_date')

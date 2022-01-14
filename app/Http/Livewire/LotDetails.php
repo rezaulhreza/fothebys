@@ -27,10 +27,10 @@ class LotDetails extends Component
         $search=request()->query('search');
         if($search){
           $lots=  LotItem::where('title','LIKE',"%{$search}%")
-            ->orWhere('artist','LIKE',$search)
-            ->orWhere('year','LIKE',$search)
-            ->orWhere('desc','LIKE',$search)
-            ->orWhere('lot_ref','LIKE',$search)
+            ->orWhere('artist','LIKE',"%{$search}%")
+            ->orWhere('year','LIKE',"%{$search}%")
+            ->orWhere('desc','LIKE',"%{$search}%")
+            ->orWhere('lot_ref','LIKE',"%{$search}%")
             ->orWhere('category_id','LIKE',$search)
     
             ->orderBy('id','DESC')->get();
@@ -167,15 +167,17 @@ class LotDetails extends Component
             'category_id' => $request->input('category_id'),
             'title' => $request->input('title'),
             'lot_ref' => $request->input('lot_ref'),
+            'subject' => $request->input('subject'),
+            'period' => $request->input('period'),
+            'location' => $request->input('location'),
             'artist' => $request->input('artist'),
             'year' => $request->input('year'),
             'minimum' => $request->input('minimum'),
             'estimated' => $request->input('estimated'),
             'additional' => $request->input('additional'),
             'desc' => $request->input('desc'),
-            'subject' => $request->input('subject'),
-            'period' => $request->input('period'),
-            'location' => $request->input('location'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
             'status' => $request->input('status')|false
             ]);
            

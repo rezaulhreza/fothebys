@@ -29,21 +29,21 @@ class Home extends Component
             ->orWhere('desc','LIKE',$search)
             ->orWhere('lot_ref','LIKE',$search)
             ->orWhere('category_id','LIKE',$search)
-            ->orderBy('id','DESC')->get();
+            ->orderBy('id','DESC')->latest()->paginate(5);
 
             
         }
         else{
-            $lots =LotItem::whereDate('start_date', '<=', Carbon::today())->orderBy('id', 'desc')->take(5)->get();
+            $lots =LotItem::whereDate('start_date', '<=', Carbon::today())->latest()->paginate(10);
             
-        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->get();;
+        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->latest()->paginate(5);
             
         }
     
         $lotCount = LotItem::count();
         
 
-        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->get();;
+        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->latest()->paginate(5);
 
         $lotCount = LotItem::count();
         

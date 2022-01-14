@@ -23,18 +23,21 @@ class Dashboard extends Component
             $users=  User::where('name','LIKE',"%{$search}%")
             ->orWhere('email','LIKE',"%{$search}%")
             ->orWhere('role','LIKE',"%{$search}%")
+            ->orWhere('id','LIKE',$search)
             
             ->orderBy('id','DESC')->latest()->paginate(5);
 
             $bids=  Bid::where('user_id','LIKE',"%{$search}%")
             ->orWhere('price','LIKE',"%{$search}%")
             ->orWhere('lot_item_id','LIKE',"%{$search}%")
+            ->orWhere('id','LIKE',$search)
             ->orderBy('id','DESC')->latest()->paginate(5);
             
             $bookings=  Booking::where('status','LIKE',"%{$search}%")
             ->orWhere('post_code','LIKE',"%{$search}%")
             ->orWhere('reason','LIKE',"%{$search}%")
             ->orWhere('status','LIKE',"%{$search}%")
+            ->orWhere('id','LIKE',$search)
             ->orWhere('contact','LIKE',"%{$search}%")
             
             ->orderBy('id','DESC')->latest()->paginate(5);
@@ -45,6 +48,8 @@ class Dashboard extends Component
             ->orWhere('country','LIKE',"%{$search}%")
             ->orWhere('type','LIKE',"%{$search}%")
             ->orWhere('approved','LIKE',"%{$search}%")
+            ->orWhere('contact','LIKE',"%{$search}%")
+            ->orWhere('id','LIKE',$search)
             
             ->orderBy('id','DESC')->latest()->paginate(5);
           
@@ -66,7 +71,7 @@ $lotCount = LotItem::count();
 $userCount = User::count();
 $faqCount = Faq::count();
 $bidCount = Bid::count();
-$bookingCount = Bid::count();
+$bookingCount = Booking::count();
 $applicationCount = Application::count();
     return view('livewire.admin.dashboard.admin-dashboard',compact('categoryCount', 'applications','applicationCount','userCount', 'faqCount','lotCount','users','bookings','bids','bookingCount','bidCount'))->layout('layouts.app');
 

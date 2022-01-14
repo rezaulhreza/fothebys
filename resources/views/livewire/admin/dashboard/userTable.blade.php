@@ -6,6 +6,7 @@
            
             </div>
             @if ($userCount  > 0)
+           
             {{ $users->links() }}
 
              @forelse ($users as $user)
@@ -21,13 +22,18 @@
                 <ul role="list" class="divide-y divide-gray-200">
                    <li class="py-3 sm:py-4">
                       <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
-                         
+                        <div class="flex-1 min-w-0">
+                           <p class="text-sm font-medium text-gray-900 truncate">
+                             ID: {{$user->id}}
+                           </p>
+                          
+                        </div>
                          <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-900 truncate">
                               Name: {{$user->name}}
                             </p>
                             <p class="text-sm text-gray-500 truncate">
-                               <a href="mailto:{{$user->email}}" class="__cf_email__" data-cfemail="#">{{$user->email}}</a>
+                              Email: <a href="mailto:{{$user->email}}" class="__cf_email__" data-cfemail="#">{{$user->email}}</a>
                             </p>
                          </div>
                          <div class="inline-flex items-center text-base font-semibold text-gray-900">

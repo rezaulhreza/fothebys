@@ -45,7 +45,7 @@
         <a class="cursor-pointer" href="#">
           <div class="hover:scale-105 transform transition-all static duration-500">
             <img class="h-25 "
-            src="{{ asset($img->photo_name ) }} " alt="image" />
+            src="{{ asset($img->photo_name ) }} " alt="$img->photo_name" />
           </div>
         </a>
       </div>

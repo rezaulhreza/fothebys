@@ -56,6 +56,9 @@
                     <th>Title</th>
                     <th>Lot Ref. No</th>
                     <th>Artist</th>
+                    <th>Updated</th>
+                    <th>Created</th>
+              
                     <th width="150px">Action</th>
                 </tr>
             </thead>
@@ -68,16 +71,16 @@
                         @if ($lot->lot_thumbnail!=null)
                         <img src="{{ asset($lot->lot_thumbnail) }}" alt=""  style="width: 70px; height:70px;">
                         @else
-                            No Image Available
+                            No Image
                         @endif
                        
                     </td>
                     <td>{{ $lot->title }}</td>
                     <td>{{ $lot->lot_ref }}</td>
                     <td>{{ $lot->artist }}</td>
-                    {{-- <td>{!! $faq->answer !!}</td>
-                    <td>{{ $faq->created_at->diffForHumans() }}</td>
-                    <td>{{ $faq->updated_at->diffForHumans() }}</td> --}}
+                    <td>{{ $lot->updated_at->diffForHumans() }}</td>
+                    <td>{{ $lot->created_at->diffForHumans() }}</td>
+                  
                     <td>
                         <a href="{{ route('lots.edit', $lot->id)}}" class="btn bg-purple-900 text-white btn-sm">Edit</a>
                     <form action="{{ route('lots.destroy', $lot->id)}}" method="post" style="display: inline-block">
