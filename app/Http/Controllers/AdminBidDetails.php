@@ -82,7 +82,11 @@ class AdminBidDetails extends Controller
         ]);
         //  dd($updateData);
          Bid::whereId($id)->update($updateData);
-         return back()->with('success','Updated successfully');
+         $notification = [
+            'message' => 'Bid updated Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 
     /**
@@ -98,7 +102,7 @@ class AdminBidDetails extends Controller
         $bid->delete();
 
         $notification = [
-            'message' => ' Deleted Successfully!!!',
+            'message' => 'Bid Deleted Successfully!!!',
             'alert-type' => 'success'
         ];
         return redirect('/admin/dashboard')->with($notification);

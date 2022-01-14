@@ -81,7 +81,11 @@ class AdminBookingDetails extends Controller
         ]);
         //  dd($updateData);
          Booking::whereId($id)->update($updateData);
-         return back()->with('success','Updated successfully');
+         $notification = [
+            'message' => 'Booking updated Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 
     /**
@@ -97,7 +101,7 @@ class AdminBookingDetails extends Controller
         $booking->delete();
 
         $notification = [
-            'message' => ' Deleted Successfully!!!',
+            'message' => 'Booking Deleted Successfully!!!',
             'alert-type' => 'success'
         ];
         return redirect('/admin/dashboard')->with($notification);

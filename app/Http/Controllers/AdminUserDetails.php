@@ -77,7 +77,11 @@ class AdminUserDetails extends Controller
         ]);
         // dd($updateData);
         User::whereId($id)->update($updateData);
-        return back()->with('success','Updated successfully');
+        $notification = [
+            'message' => ' User Updated Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 
     /**
@@ -91,6 +95,10 @@ class AdminUserDetails extends Controller
         $users = User::findOrFail($id);
         $users->delete();
 
-        return back();
+        $notification = [
+            'message' => 'User Deleted Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 }

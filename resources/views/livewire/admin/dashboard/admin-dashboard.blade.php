@@ -4,7 +4,30 @@
            <h1 class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mb-8 text-xl">
                 {{ Auth::user()->name }}, Welcome</h1>
        </div>
-      
+
+
+       @if (session()->has('message'))
+       <div class="container mx-auto mt-10 space-y-5">
+         <!-- Alert Success  -->
+         <div
+           class="flex justify-between text-green-200 shadow-inner rounded p-3 bg-green-600 animate-bounce"
+         >
+           <p class="self-center">
+             <strong>Success </strong>{{session('message')}}
+           </p>
+           <strong class="text-xl align-center cursor-pointer alert-del"
+             >&times;</strong
+           >
+         </div>
+       
+       
+       
+        
+       </div>
+
+   @endif
+
+
        <form action="{{route('admin.dashboard')}}" method="get">
         
          <div class="relative mr-6 my-2">
@@ -69,11 +92,7 @@
 
        </div>
 
-       @if (session()->has('message'))
-       <div class="alert alert-success">
-           {{ session('message') }}
-       </div>
-   @endif
+       
 @include('livewire.admin.dashboard.userTable')
 @include('livewire.admin.dashboard.bidTable')
 
@@ -81,6 +100,13 @@
 @include('livewire.admin.dashboard.memberTable')
 
 
+
+  <script>var alert_del = document.querySelectorAll('.alert-del');
+   alert_del.forEach((x) =>
+     x.addEventListener('click', function () {
+       x.parentElement.classList.add('hidden');
+     })
+   );</script>
 
 
 

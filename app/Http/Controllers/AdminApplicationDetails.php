@@ -82,7 +82,11 @@ class AdminApplicationDetails extends Controller
         ]);
         //  dd($updateData);
          Application::whereId($id)->update($updateData);
-         return back()->with('success','Updated successfully');
+         $notification = [
+            'message' => 'Application Updated Successfully!!!',
+            'alert-type' => 'success'
+        ];
+        return redirect('/admin/dashboard')->with($notification);
     }
 
     /**
@@ -98,7 +102,7 @@ class AdminApplicationDetails extends Controller
         $application->delete();
 
         $notification = [
-            'message' => ' Deleted Successfully!!!',
+            'message' => 'Application Deleted Successfully!!!',
             'alert-type' => 'success'
         ];
         return redirect('/admin/dashboard')->with($notification);
