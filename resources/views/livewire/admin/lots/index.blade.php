@@ -39,7 +39,7 @@
             </div>
           </form>
          <div class="px-5 m-2">
-            <sub>Tips: <span class="font-italic">If you want to search published lot items, type 1, for Archived, type 0</span></sub>     
+            <sub>Tips: <span class="font-italic">If you want to search published lot items, type 1, For Archived, type 0</span></sub>     
         </div>    
           @forelse ($lots as $lot)
     
