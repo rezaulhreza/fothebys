@@ -265,7 +265,7 @@
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
                                                 id="status" name="status"  value="0">
-                                                <label class="form-check-label" for="status">Reserve</label>
+                                                <label class="form-check-label" for="status">Archive</label>
                                             </div>
                                         </div>
                                     </div>

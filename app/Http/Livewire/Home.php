@@ -24,26 +24,30 @@ class Home extends Component
         if($search){
           $lots=  LotItem::where('title','LIKE',"%{$search}%")
           ->whereDate('start_date', '<=', Carbon::today())
+          ->where('status','=','1')
             ->orWhere('artist','LIKE',$search)
             ->orWhere('year','LIKE',$search)
             ->orWhere('desc','LIKE',$search)
             ->orWhere('lot_ref','LIKE',$search)
-            ->orWhere('category_id','LIKE',$search)
-            ->orderBy('id','DESC')->latest()->paginate(5);
+
+
+            ->latest()->paginate(5);
 
             
         }
         else{
-            $lots =LotItem::whereDate('start_date', '<=', Carbon::today())->latest()->paginate(10);
+            $lots =LotItem::whereDate('start_date', '<=', Carbon::today())
+            ->where('status','=','1')->
+            latest()->paginate(8);
             
-        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->latest()->paginate(5);
+        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->where('status','=','1')->latest()->paginate(8);
             
         }
     
         $lotCount = LotItem::count();
         
 
-        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->latest()->paginate(5);
+        $upcoming=LotItem::whereDate('start_date', '>', Carbon::today())->where('status','=','1')->latest()->paginate(5);
 
         $lotCount = LotItem::count();
         

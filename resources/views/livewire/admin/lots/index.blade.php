@@ -56,6 +56,7 @@
                     <th>Title</th>
                     <th>Lot Ref. No</th>
                     <th>Artist</th>
+                    <th>Status</th>
                     <th>Updated</th>
                     <th>Created</th>
               
@@ -78,6 +79,15 @@
                     <td>{{ $lot->title }}</td>
                     <td>{{ $lot->lot_ref }}</td>
                     <td>{{ $lot->artist }}</td>
+                    <td>
+
+                        @if ($lot->status===1)
+                            Published
+                        @else
+                            Archived
+                        @endif
+
+                    </td>
                     <td>{{ $lot->updated_at->diffForHumans() }}</td>
                     <td>{{ $lot->created_at->diffForHumans() }}</td>
                   

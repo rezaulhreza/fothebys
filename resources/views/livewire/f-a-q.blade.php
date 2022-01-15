@@ -28,7 +28,8 @@
             </details>
           </div>
             @endforeach
-            {{ $faqs->links() }}
+        </div>
+        <div class="text-xl px-5 mt-5">{{ $faqs->links() }}</div>
 
             @else 
             <h1>FAQs adding soon</h1>

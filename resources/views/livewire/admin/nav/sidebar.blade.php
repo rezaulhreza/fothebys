@@ -23,7 +23,7 @@
                            
                               <img class="inline object-cover relative rounded-lg
                   shadow-sm
-                  w-6 h-6 " src="{{asset('photos/avatar.jpg')}}
+                  w-8 h-8 " src="{{Auth::user()->profile_photo_url}}
                   " alt="">
                               <span class="ml-3 text-xl">{{Auth::user()->name}}</span>
                            </a>
@@ -35,7 +35,8 @@
                            
                      
                               <span class="ml-3">
-                                 <img class="w-6 h-6" src="https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-website-graphs-and-charts-soft-fill-soft-fill-juicy-fish.png"/>
+                                 <img class="w-6 h-6" 
+                                 src="https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-website-graphs-and-charts-soft-fill-soft-fill-juicy-fish.png"/>
                                  Dashboard</span>
                            </a>
                         </li>

@@ -157,6 +157,9 @@ return [
         'lot_ref' => [
             'numeric' => 'Lot Reference No. can only be numbers',
         ],
+        'price' => [
+            'required' => 'Please enter your bidding amount',
+        ],
         
         
     ],

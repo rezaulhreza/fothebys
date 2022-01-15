@@ -29,6 +29,9 @@
                           
                         </div>
                          <div class="flex-1 min-w-0">
+                           <p class="text-sm font-medium text-gray-900 truncate">
+                             <img src=" {{$user->profile_photo_url}}" alt="" class="w-10 h-10">
+                            </p>
                             <p class="text-sm font-medium text-gray-900 truncate">
                               Name: {{$user->name}}
                             </p>

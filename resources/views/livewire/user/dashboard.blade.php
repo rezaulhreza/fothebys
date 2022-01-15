@@ -3,7 +3,8 @@
     <div class="px-3 py-2">
       
         <div class="flex flex-col gap-1 text-center">
-            <a class="block mx-auto bg-center bg-no-repeat bg-cover w-20 h-20 rounded-full border border-gray-400 shadow-lg" href="{{route('user.account')}}" ><img src="{{asset('photos/avatar.jpg')}}" alt=""></a>
+            <a class=" mx-auto  w-20 h-20" href="{{route('user.account')}}" >
+                <img src="{{Auth::user()->profile_photo_url}}" alt="{{Auth::user()->name}}" class="rounded-full"></a>
             <p class="font-serif font-semibold">{{Auth::user()->name}}</p>
             <span class="text-sm text-gray-400">{{Auth::user()->email}}</span>
             <span class="text-sm text-gray-400">{{Auth::user()->role}}</span>

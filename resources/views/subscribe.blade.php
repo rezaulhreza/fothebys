@@ -9,9 +9,14 @@
             <button type="submit" class="text-2xl font-semibold text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition flex items-center justify-center">Sign up</button>
           </div>
           <label class="w-full flex items-baseline gap-3 font-semibold text-lg">
-            <input type="checkbox" required value="policy-read" />
-            <span>By subscribing to our bulettin, you acknowledge you have read, understood and agree to abide by <a href="#" class="underline">our personal data policy</a>.</span>
+            <input type="checkbox"  value="policy-read" />
+           <span>Weekly</span>
           </label>
+          <label class="w-full flex items-baseline gap-3 font-semibold text-lg">
+            <input type="checkbox"  value="policy-read" />
+           <span>Monthly</span>
+          </label>
+          <label for=""> <span>By subscribing to our bulettin, you acknowledge you have read, understood and agree to abide by <a href="#" class="underline">our personal data policy</a>.</span></label>
         </form>
       </section>
     </section>

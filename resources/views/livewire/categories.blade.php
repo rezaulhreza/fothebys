@@ -26,10 +26,11 @@
                     <div class="w-full p-3">
                       <div class="p-6 rounded-lg bg-white rounded shadow m-3">
                        
-                        <h2 class="text-lg  font-medium title-font mb-2">{{$category->name}}</h2>
+                        <h2 class="text-lg  font-medium title-font mb-2">{{Str::ucfirst($category->name)}}</h2>
                         {{-- <p class="leading-relaxed text-base">{!!$category->description!!}</p> --}}
+                        <p class="mb-2 border border-gray-200 px-3">{!!$category->description!!}</p>
 
-                        <button class="bg-purple-900 text-white rounded h-15 p-3 text-sm">View all items</button>
+                        {{-- <button class="bg-purple-900 text-white rounded h-15 p-3 text-sm">View all items</button> --}}
                         
                        
           

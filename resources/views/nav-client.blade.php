@@ -116,7 +116,7 @@
           px-2 bg-transparent text-center hover:bg-red-600 text-sm  font-bold uppercase  rounded shadow outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150" type="button" onclick="openDropdown(event,'dropdown-id')">
           <img class="inline object-cover relative rounded-lg
           shadow-sm
-          w-10 h-10 " src="{{asset('photos/avatar.jpg')}}
+          w-10 h-10 " src="{{Auth::user()->profile_photo_url}}
           " alt=""> 
        <span>{{Auth::user()->name}}</span>
           </button>

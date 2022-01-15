@@ -1,3 +1,5 @@
+
+
 <div class="hero bg-gray-50 py-16">
   <!-- container -->
   <div class="
@@ -115,7 +117,7 @@
           </div>
 
       
-          {{$lots->links()}}
+          <div class="px-5 mt-5">{{$lots->links()}}</div>
 
 
           
@@ -178,7 +180,7 @@
                   @endforeach
                      
                 </div>
-{{$upcoming->links()}}
+<div class="px-5 mt-5">{{$upcoming->links()}}</div>
                 @else 
 
                 <div
@@ -186,3 +188,6 @@
               >
 We are coming up with interesting lots! Stay Tuned
                 @endif
+                
+
+

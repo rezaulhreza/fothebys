@@ -92,12 +92,15 @@
   <form action="{{ route('lot.bids',$lot) }}" method="post" class="px-6">
     @csrf
     <label for="price" class="font-nold text-lg">Place Bid</label>
-    <input type="number" class="bg-gray-400 rounded-lg p-2 px-2 m-2" name="price">
-    @error('price')
-    <span class="alert text-danger">{{ $message }}</span>
-    @enderror
+    <input type="number" class="bg-gray-400 rounded-lg p-2 px-2 m-2 text-white tetx-2xl" name="price">
+   
     <button class="bg-red-700 text-white p-2 m-2 rounded-full">Submit</button>
   </form>
+<div class="alert alert-danger text-white font-bold text-lg bg-red-500 w-1/4 text-center rounded-lg px-5 m-2">
+  @error('price')
+  <span class="alert text-danger">{{ $message }}</span>
+  @enderror
+</div>
 
 
 

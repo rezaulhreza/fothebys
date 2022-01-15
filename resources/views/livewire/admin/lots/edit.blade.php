@@ -245,15 +245,22 @@
                                     <hr>
                                     
                                     {{-- Eighth row start --}}
-                                    <h5 class=" text-lg text-gray-700   mt-4">Check</h5>
+                                    <h5 class=" text-lg text-gray-700   mt-4">Action</h5>
                                     <hr>
                                     <div class="row mb-3">
                                        
                                         <div class="col-md-4">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                id="status" name="status" checked value="1" {{ $lot->status == 1 ? 'checked': '' }}>
-                                                <label class="form-check-label" for="status">Active Status</label>
+                                                id="status" name="status"  value="1" {{ $lot->status == 1 ? 'checked': '' }}>
+                                                <label class="form-check-label" for="status">Publish</label>
+                                                
+                                            </div>
+                                            <div class="form-check form-switch">
+                                           
+                                                <input class="form-check-input" type="checkbox"
+                                                id="status" name="status"  value="0" {{ $lot->status == 0 ? 'checked': '' }}>
+                                                <label class="form-check-label" for="status">Archive</label>
                                             </div>
                                         </div>
                                     </div>
