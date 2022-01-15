@@ -33,9 +33,9 @@ class LotDetails extends Component
             ->orWhere('lot_ref','LIKE',"%{$search}%")
             ->orWhere('category_id','LIKE',$search)
     
-            ->orderBy('id','DESC')->get();
+            ->latest()->paginate(10);
         }else{
-         $lots = LotItem::with(['category','images'])->latest()->get();
+         $lots = LotItem::with(['category','images'])->latest()->paginate(10);
         }
         return view('livewire.admin.lots.index',compact('lots'));
     }

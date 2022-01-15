@@ -38,15 +38,17 @@
               </button>
             </div>
           </form>
-
+         <div class="px-5 m-2">
+            <sub>Tips: <span class="font-italic">If you want to search published lot items, type 1, for Archived, type 0</span></sub>     
+        </div>    
           @forelse ($lots as $lot)
     
 @empty
     No results found  {{request()->query('search')}}
     
 @endforelse
-          
-      
+   
+
         <table class="table table-bordered mt-5">
             <thead>
                 <tr>
@@ -57,6 +59,7 @@
                     <th>Lot Ref. No</th>
                     <th>Artist</th>
                     <th>Status</th>
+                   
                     <th>Updated</th>
                     <th>Created</th>
               
@@ -64,6 +67,7 @@
                 </tr>
             </thead>
             <tbody>
+               
                 @foreach($lots as $lot)
                 <tr>
               
@@ -103,6 +107,7 @@
                 {{-- {{ $lot->links() }} --}}
             </tbody>
         </table>
+        <div class="px-5 text-xl font-bold">{{$lots->links()}}</div>
     </div>
     
     </x-app-layout>

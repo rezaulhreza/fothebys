@@ -39,7 +39,9 @@
         @forelse ($faqs as $faq)
         
         @empty
+           <div class="px-5 m-3">
             No results found {{request()->query('search')}}
+           </div>
             
         @endforelse
     
