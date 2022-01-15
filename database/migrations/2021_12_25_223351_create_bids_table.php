@@ -18,7 +18,7 @@ class CreateBidsTable extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('lot_item_id');
             $table->unsignedBigInteger('user_id');
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

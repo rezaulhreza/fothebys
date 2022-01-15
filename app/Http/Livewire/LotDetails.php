@@ -28,10 +28,11 @@ class LotDetails extends Component
         if($search){
           $lots=  LotItem::where('title','LIKE',"%{$search}%")
             ->orWhere('artist','LIKE',"%{$search}%")
-            ->orWhere('year','LIKE',"%{$search}%")
+            ->orWhere('year','LIKE',$search)
+            ->orWhere('status','LIKE',$search)
             ->orWhere('desc','LIKE',"%{$search}%")
-            ->orWhere('lot_ref','LIKE',"%{$search}%")
-            ->orWhere('category_id','LIKE',$search)
+            ->orWhere('lot_ref','LIKE',$search)
+         
     
             ->latest()->paginate(10);
         }else{
