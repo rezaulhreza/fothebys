@@ -252,14 +252,14 @@
                                         <div class="col-md-4">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                id="status" name="status"  value="1" {{ $lot->status == 1 ? 'checked': '' }}>
+                                                id="status" name="status"  value="published" {{ $lot->status ==- 'published' ? 'checked': '' }}>
                                                 <label class="form-check-label" for="status">Publish</label>
                                                 
                                             </div>
                                             <div class="form-check form-switch">
                                            
                                                 <input class="form-check-input" type="checkbox"
-                                                id="status" name="status"  value="0" {{ $lot->status == 0 ? 'checked': '' }}>
+                                                id="status" name="status"  value="archived" {{ $lot->status ==='archived' ? 'checked': '' }}>
                                                 <label class="form-check-label" for="status">Archive</label>
                                             </div>
                                         </div>

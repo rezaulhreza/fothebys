@@ -24,8 +24,11 @@
                       <div class="flex items-center space-x-4 border-2 border-gray-100 m-2 p-2">
                         <div class="flex-1 min-w-0">
                            <p class="text-sm font-medium text-gray-900 truncate">
-                             ID: {{$user->id}}
+                             ID: <strong>{{$user->id}}</strong>
                            </p>
+                           <p class="text-sm font-medium text-gray-900 truncate">
+                             Role: <strong>{{Str::ucfirst($user->role)}}</strong>
+                            </p>
                           
                         </div>
                          <div class="flex-1 min-w-0">
@@ -33,14 +36,14 @@
                              <img src=" {{$user->profile_photo_url}}" alt="" class="w-10 h-10">
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate">
-                              Name: {{$user->name}}
+                              Name: <strong>{{$user->name}}</strong>
                             </p>
                             <p class="text-sm text-gray-500 truncate">
                               Email: <a href="mailto:{{$user->email}}" class="__cf_email__" data-cfemail="#">{{$user->email}}</a>
                             </p>
                          </div>
                          <div class="inline-flex items-center text-base font-semibold text-gray-900">
-                            <p class="text-sm font-light">Joined: {{$user->created_at->diffForhumans()}} </p>
+                            <p class="text-sm font-light">Joined: <strong>{{$user->created_at->diffForhumans()}}</strong> </p>
                           
                          </div>
                          <div class="inline-flex items-center text-base font-semibold text-gray-900">
