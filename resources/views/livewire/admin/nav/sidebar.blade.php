@@ -5,7 +5,7 @@
                   <div class="flex-1 px-3 bg-red-300 text-white divide-y space-y-1">
                      <ul class="space-y-2 pb-2">
                         <li>
-                           <form action="#" method="GET" class="lg:hidden">
+                           <form action="{{route('admin.dashboard')}}" method="GET" class="lg:hidden">
                               <label for="mobile-search" class="sr-only">Search</label>
                               <div class="relative">
                                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -13,7 +13,9 @@
                                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                                     </svg>
                                  </div>
-                                 <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-white   text-lg text-sm rounded-sm focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
+                                 <input type="text" 
+                                 value="{{request()->query('search')}}"
+                                 name="search" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900   text-lg text-sm rounded-sm focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
                               </div>
                            </form>
                         </li>

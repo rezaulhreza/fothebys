@@ -34,7 +34,9 @@ class LotDetails extends Component
             ->orWhere('lot_ref','LIKE',$search)
          
     
+            ->with(['category','images'])
             ->latest()->paginate(10);
+             
         }else{
          $lots = LotItem::with(['category','images'])->latest()->paginate(10);
         }
