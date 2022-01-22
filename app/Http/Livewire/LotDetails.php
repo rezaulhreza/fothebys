@@ -153,9 +153,9 @@ class LotDetails extends Component
     {
        
         $categories = Category::latest()->get();
-        
-        $lot = LotItem::with(['category'])->findOrFail($id);
-        return view('livewire.admin.lots.edit', compact('lot', 'categories'));
+        $auctions = Auction::latest()->get();
+        $lot = LotItem::with(['category','auction'])->findOrFail($id);
+        return view('livewire.admin.lots.edit', compact('lot', 'categories','auctions'));
     }
 
     /**

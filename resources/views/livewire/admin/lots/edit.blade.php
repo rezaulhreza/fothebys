@@ -18,6 +18,26 @@
                                     @csrf
                         @method('PATCH')
                                     {{-- First row start--}}
+                                    <h5 class=" text-xl text-gray-700  ">Auction Selection</h5>
+                                    <hr>
+                                    <div class="row text-lg">
+                                  
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <h5>Auction Name <span class="text-danger">*</span></h5>
+                                                <select class="custom-select" aria-label="Default select example" name="auction_id">
+                                                    <option selected>Select Auction Name</option>
+                                                    @foreach ($auctions as $auction)
+                                                    <option value="{{ $auction->id }}" {{ $auction->id == $lot->auction_id ? 'selected' : '' }}>{{ $auction->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('auction_id')
+                                                    <span class="alert text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
                                     <h5 class=" text-xl text-gray-700  ">Category Selection</h5>
                                     <hr>
                                     <div class="row text-lg">
