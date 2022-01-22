@@ -76,7 +76,7 @@ class Category extends Component
         $category = ModelsCategory::findOrFail($id);
         $category->delete();
 
-        return redirect('/admin/category')->with('completed', 'Student has been deleted');
+        return redirect('/admin/category')->with('completed', 'Category has been deleted');
     }
 
 

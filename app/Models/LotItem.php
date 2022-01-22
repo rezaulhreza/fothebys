@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 
 class LotItem extends Model
 {
@@ -18,6 +19,10 @@ class LotItem extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+    public function auction()
+    {
+        return $this->belongsTo(Auction::class, 'auction_id', 'id');
     }
     public function images()
     {

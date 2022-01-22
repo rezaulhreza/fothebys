@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminBookingDetails;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\AdminApplicationDetails;
+use App\Http\Controllers\AuctionController;
 use App\Http\Livewire\User\Account as UserAccount;
 use App\Http\Livewire\Admin\Account as AdminAccount;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
@@ -75,6 +76,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboard::class)->name('admin.dashboard');
     Route::get('/admin/account', AdminAccount::class)->name('admin.account');
     Route::resource('/admin/category', Category::class);
+    Route::resource('/admin/auction', AuctionController::class);
     Route::resource('/admin/faqs', FAQ::class);
 
 

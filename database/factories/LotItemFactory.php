@@ -22,7 +22,7 @@ class LotItemFactory extends Factory
             //
         'title' => $title,
       
-        'category_id' => $this->faker->numberBetween(1, 8),
+        'category_id' => $this->faker->numberBetween(1, 5),
         'lot_ref' => $this->faker->numberBetween(1, 5),
         'artist' => $this->faker->text(50),
         'subject' => $this->faker->unique()->words($nb = 1, $asText = true),

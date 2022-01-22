@@ -17,7 +17,7 @@ class CreateLotItemsTable extends Migration
             $table->id();
      
             $table->unsignedBigInteger('category_id')->nullable();
-         
+            $table->unsignedBigInteger('auction_id')->nullable();
             
             $table->string('title');
          
@@ -40,6 +40,12 @@ class CreateLotItemsTable extends Migration
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+                $table->foreign('auction_id')
+                ->references('id')
+                ->on('auctions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
           

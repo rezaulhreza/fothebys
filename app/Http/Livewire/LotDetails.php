@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Image as ModelsImage;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\LotStoreRequest;
+use App\Models\Auction;
 
 class LotDetails extends Component
 {
@@ -54,9 +55,10 @@ class LotDetails extends Component
     {
         //
         $categories = Category::latest()->get();
+        $auctions = Auction::latest()->get();
         return view('livewire.admin.lots.create', compact(
             
-            'categories',
+            'categories','auctions'
             
         ));
 
@@ -75,6 +77,7 @@ class LotDetails extends Component
         $lot = LotItem::create([
             
             'category_id' => $request->input('category_id'),
+            'auction_id' => $request->input('auction_id'),
             'title' => $request->input('title'),
             'lot_ref' => $request->input('lot_ref'),
             'subject' => $request->input('subject'),
@@ -168,6 +171,7 @@ class LotDetails extends Component
         // dd($request->all());
         $lot->update([
             'category_id' => $request->input('category_id'),
+            'auction_id' => $request->input('auction_id'),
             'title' => $request->input('title'),
             'lot_ref' => $request->input('lot_ref'),
             'subject' => $request->input('subject'),

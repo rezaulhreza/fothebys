@@ -38,7 +38,12 @@
 <div class="grid grid-rows-2 gap-5">
 
   <div class="row-span-2">
-    
+    <div class="px-10 mt-5 py-5">
+      <span class="uppercase font-bold text-xl "
+    ><p class="font-light text-2xl"><strong>{{Str::ucfirst($lot->auction->name)}} # {{$lot->lot_ref}}</strong></p></span
+  >
+    </div>
+ 
     <div class="px-10 grid grid-cols-4 gap-4">
       @foreach($lot->images as $img)
       <div class="flex justify-center static items-center">
@@ -58,8 +63,12 @@
 
 <div class="px-10 mt-5 border-t border-red-100 p-8">
   <span class="uppercase font-bold text-xl "
-    ><p class="font-light text-2xl"><strong>{{Str::ucfirst($lot->title)}}</strong></p></span
+    ><p class="font-light text-2xl">Item Title: <strong>{{Str::ucfirst($lot->title)}}</strong></p></span
   >
+ 
+
+  
+
   <p class="font-light">Subject: <strong>{{Str::ucfirst($lot->subject)}}</strong></p>
   <p class="font-light">By: <strong>{{Str::ucfirst($lot->artist)}}, Produced in {{$lot->year}}</strong></p>
   <p class="font-light">Location: <strong>{{Str::ucfirst($lot->location)}}</strong></p>

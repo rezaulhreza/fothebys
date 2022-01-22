@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Auction;
 use DateTime;
 use App\Models\LotItem;
 use Livewire\Component;
@@ -52,7 +53,8 @@ class Home extends Component
         $lotCount = LotItem::count();
         
         $categories = Category::all();
-        return view('livewire.home',['categories'=>$categories],['lots'=>$lots,'upcoming'=>$upcoming,'lotCount'=>$lotCount])->layout('layouts.guest');
+        $auctions = Auction::all();
+        return view('livewire.home',['categories'=>$categories,'auctions'=>$auctions,'lots'=>$lots,'upcoming'=>$upcoming,'lotCount'=>$lotCount])->layout('layouts.guest');
     }
 
 

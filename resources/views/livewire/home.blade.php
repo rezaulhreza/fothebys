@@ -79,6 +79,9 @@
                 <div class="bg-white shadow-lg rounded-sm -mt-4 w-64">
                   <div class="py-5 px-5">
                     <span class="font-bold text-gray-800 text-lg">{{$lot->title}}</span>
+                   <div class="py-5 px-5 text-sm-text-gray-800-font-light">
+                    <span>Auction Title: {{Str::ucfirst($lot->auction->name)}}</span>
+                   </div>
                     <div class="flex items-center justify-between">
                       <div class="text-sm text-gray-600 font-light">
                     

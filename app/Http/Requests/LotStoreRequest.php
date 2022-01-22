@@ -24,7 +24,7 @@ class LotStoreRequest extends FormRequest
     public function rules()
     {
         return [
-           
+            'auction_id' => 'required|numeric',
             'category_id' => 'required|numeric',
             'year' => 'required|numeric|min:4',
             'title' => 'required',

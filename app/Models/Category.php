@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Lot;
+
 use App\Models\LotItem;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

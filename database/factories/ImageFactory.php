@@ -18,7 +18,7 @@ class ImageFactory extends Factory
      
         return [
             //
-            'lot_id' => $this->faker->numberBetween(10, 30),
+            'lot_id' => $this->faker->numberBetween(1, 10),
             'photo_name'=>$image,
 
         ];

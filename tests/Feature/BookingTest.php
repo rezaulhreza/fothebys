@@ -2,9 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class BookingTest extends TestCase
 {
@@ -15,8 +16,12 @@ class BookingTest extends TestCase
      */
     public function test_booking_page_is_displayed()
     {
+        $this->actingAs($user = User::factory()->create());
+
         $response = $this->get('/booking');
 
         $response->assertStatus(200);
     }
+
+    
 }

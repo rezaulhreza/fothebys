@@ -42,7 +42,16 @@
                                  Dashboard</span>
                            </a>
                         </li>
+                        <li>
+                           <a href="{{route('auction.index')}}" class="text-base text-white   text-lg font-normal rounded-sm flex items-center p-2 hover:bg-purple-500group">
+                           
                      
+                              <span class="ml-3">
+                                 <img class="w-6 h-6" src="https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/000000/external-auction-finance-kmg-design-outline-color-kmg-design.png"/>
+                              
+                              Manage Auction</span>
+                           </a>
+                        </li>
                         <li>
                            <a href="{{route('category.index')}}" class="text-base text-white   text-lg font-normal rounded-sm flex items-center p-2 hover:bg-purple-500group">
                            
@@ -53,18 +62,9 @@
                               Manage Category</span>
                            </a>
                         </li>
+ 
 
-                        {{-- <li>
-                           <a href="{{route('products.index')}}" class="text-base text-white   text-lg font-normal rounded-sm flex items-center p-2 hover:bg-purple-500group">
-                           
-                     
-                              <span class="ml-3">
-                                 <img class="w-6 h-6" src="https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-faq-frequently-asked-questions-faq-bearicons-gradient-bearicons-9.png"
-                                 />
-                              
-                              Manage Products</span>
-                           </a>
-                        </li> --}}
+                      
                         <li>
                            <a href="{{route('lots.index')}}" class="text-base text-white   text-lg font-normal rounded-sm flex items-center p-2 hover:bg-purple-500group">
                            
